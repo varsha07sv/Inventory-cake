@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { 
   FaBirthdayCake, 
   FaLeaf, 
@@ -11,7 +11,7 @@ import {
   FaClock,
   FaInstagram,
   FaFacebookF,
-  FaTwitter,
+  FaWhatsapp,
   FaStar,
   FaChevronRight
 } from "react-icons/fa";
@@ -21,12 +21,64 @@ import { IoMdHappy } from "react-icons/io";
 import "../styles/Home.css";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleExploreClick = (e) => {
+    e.preventDefault();
+    // Check if user is logged in (you can modify this based on your auth logic)
+    const isLoggedIn = false; // Replace with actual auth check
+    
+    if (!isLoggedIn) {
+      // Redirect to login page
+      navigate('/login');
+    } else {
+      navigate('/products');
+    }
+  };
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const openGoogleMaps = () => {
+    const address = encodeURIComponent("123 Bakery Street, Anna Nagar, Chennai - 600040");
+    window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
+  };
+
+  const makePhoneCall = (phoneNumber) => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  const sendEmail = (email) => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  const openWhatsApp = () => {
+    const phoneNumber = "919876543210"; // Without + and spaces
+    const message = encodeURIComponent("Hi! I'm interested in ordering a cake from ICB Delights.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
   return (
     <div className="home">
-      <section className="hero">
+      <section 
+        className="hero" 
+        style={{
+          background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+          url('https://images.unsplash.com/photo-1562777717-dc6984f65a63?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          color: 'white'
+        }}
+      >
         <div className="hero-content">
           <span className="hero-subtitle">Welcome to</span>
-          <h1 className="hero-title">
+          <h1 className="hero-title" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '4rem' }}>
             ICB <span className="highlight">Delights</span>
           </h1>
           <p className="hero-description">
@@ -34,19 +86,13 @@ function Home() {
             lovingly decorated cakes for your special moments.
           </p>
           <div className="hero-buttons">
-            <Link to="/products" className="btn btn-primary">
+            <a href="/products" onClick={handleExploreClick} className="btn btn-primary">
               Explore Cakes
-            </Link>
-            <Link to="/contact" className="btn btn-secondary">
+            </a>
+            <a href="#contact" onClick={handleContactClick} className="btn btn-secondary">
               Contact Us
-            </Link>
+            </a>
           </div>
-        </div>
-        <div className="hero-image">
-          <img 
-            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3"
-            alt="Celebration cake"
-          />
         </div>
       </section>
 
@@ -72,7 +118,7 @@ function Home() {
               <div className="feature-icon">
                 <MdDeliveryDining />
               </div>
-              <h3>Free Delivery</h3>
+              <h3>Fast Delivery</h3>
               <p>Complimentary delivery within Chennai city limits</p>
             </div>
             <div className="feature-card">
@@ -86,52 +132,15 @@ function Home() {
         </div>
       </section>
 
-      <section className="about">
-        <div className="container">
-          <div className="about-content">
-            <div className="about-text">
-              <h2 className="section-title">Our Sweet <span className="highlight">Story</span></h2>
-              <p className="about-description">
-                At ICB Delights, we believe every celebration deserves a perfect cake. 
-                Founded in 2020, we've been spreading joy through our exquisite creations 
-                across Chennai. Our passion for baking and attention to detail ensures 
-                that each cake is not just a dessert, but a centerpiece of your special moments.
-              </p>
-              <div className="about-stats">
-                <div className="stat">
-                  <span className="stat-number">500+</span>
-                  <span className="stat-label">Happy Clients</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number">1000+</span>
-                  <span className="stat-label">Cakes Delivered</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number">50+</span>
-                  <span className="stat-label">Cake Designs</span>
-                </div>
-              </div>
-            </div>
-            <div className="about-image">
-              <img 
-                src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6f6?ixlib=rb-4.0.3"
-                alt="Our bakery"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="works">
         <div className="container">
           <h2 className="section-title">Our Latest <span className="highlight">Creations</span></h2>
-          <p className="section-subtitle">Browse through our recent masterpieces</p>
           
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1605478900896-9c7d8f7fbe5d?ixlib=rb-4.0.3"
-                alt="Elegant birthday cake"
+                src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Elegant birthday cake with flowers"
               />
               <div className="gallery-overlay">
                 <span>Birthday Special</span>
@@ -139,8 +148,8 @@ function Home() {
             </div>
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1542826438-1e0d0d1e8f52?ixlib=rb-4.0.3"
-                alt="Wedding cake"
+                src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Elegant wedding cake"
               />
               <div className="gallery-overlay">
                 <span>Wedding Elegance</span>
@@ -148,8 +157,8 @@ function Home() {
             </div>
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3"
-                alt="Chocolate cake"
+                src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Rich chocolate cake"
               />
               <div className="gallery-overlay">
                 <span>Chocolate Delight</span>
@@ -157,8 +166,8 @@ function Home() {
             </div>
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3"
-                alt="Fruit cake"
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Fresh fruit cake"
               />
               <div className="gallery-overlay">
                 <span>Fusion Flavors</span>
@@ -166,8 +175,8 @@ function Home() {
             </div>
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3"
-                alt="Cupcakes"
+                src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Assorted cupcakes"
               />
               <div className="gallery-overlay">
                 <span>Cupcake Collection</span>
@@ -175,8 +184,8 @@ function Home() {
             </div>
             <div className="gallery-item">
               <img
-                src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-4.0.3"
-                alt="Special occasion cake"
+                src="https://images.unsplash.com/photo-1551024702-36f0d337b01d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Special occasion cake with sprinkles"
               />
               <div className="gallery-overlay">
                 <span>Special Moments</span>
@@ -192,90 +201,67 @@ function Home() {
         </div>
       </section>
 
-      <section className="testimonials">
-        <div className="container">
-          <h2 className="section-title">What Our <span className="highlight">Customers Say</span></h2>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-rating">
-                {[...Array(5)].map((_, i) => <FaStar key={i} />)}
-              </div>
-              <p className="testimonial-text">
-                "The cake was absolutely beautiful and delicious! Everyone at the party loved it. 
-                Thank you ICB Delights for making my daughter's birthday extra special."
-              </p>
-              <div className="testimonial-author">
-                <strong>Priya Sharma</strong>
-                <span>Birthday Celebration</span>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-rating">
-                {[...Array(5)].map((_, i) => <FaStar key={i} />)}
-              </div>
-              <p className="testimonial-text">
-                "Ordered a wedding cake and it exceeded all expectations. 
-                The design was perfect and the taste was heavenly. Highly recommended!"
-              </p>
-              <div className="testimonial-author">
-                <strong>Rahul Mehta</strong>
-                <span>Wedding Anniversary</span>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-rating">
-                {[...Array(5)].map((_, i) => <FaStar key={i} />)}
-              </div>
-              <p className="testimonial-text">
-                "Their attention to detail and customer service is outstanding. 
-                The custom design they created for our corporate event was a huge hit!"
-              </p>
-              <div className="testimonial-author">
-                <strong>Ananya Reddy</strong>
-                <span>Corporate Event</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="contact">
+      <section id="contact-section" className="contact">
         <div className="container">
           <div className="contact-content">
-            <h2 className="section-title">Get In <span className="highlight">Touch</span></h2>
+            <h2 className="section-title">For Enquiry <span className="highlight">Touch</span></h2>
             <p className="contact-description">
               Ready to order your perfect cake? Contact us today!
             </p>
             <div className="contact-details">
-              <div className="contact-item">
+              <div className="contact-item" onClick={openGoogleMaps} style={{ cursor: 'pointer' }}>
                 <div className="contact-icon">
                   <FaMapMarkerAlt />
                 </div>
                 <div>
                   <h4>Visit Us</h4>
                   <p>123 Bakery Street, Anna Nagar, Chennai - 600040</p>
+                  <p className="click-hint">Click to view on Google Maps</p>
                 </div>
               </div>
+              
               <div className="contact-item">
                 <div className="contact-icon">
                   <FaPhoneAlt />
                 </div>
                 <div>
                   <h4>Call Us</h4>
-                  <p>+91 98765 43210</p>
-                  <p>+91 98765 43211</p>
+                  <p 
+                    onClick={() => makePhoneCall("+919876543210")} 
+                    style={{ cursor: 'pointer', color: '#007bff' }}
+                  >
+                    +91 98765 43210
+                  </p>
+                  <p 
+                    onClick={() => makePhoneCall("+919876543211")} 
+                    style={{ cursor: 'pointer', color: '#007bff' }}
+                  >
+                    +91 98765 43211
+                  </p>
                 </div>
               </div>
+              
               <div className="contact-item">
                 <div className="contact-icon">
                   <FaEnvelope />
                 </div>
                 <div>
                   <h4>Email Us</h4>
-                  <p>hello@icbdelights.com</p>
-                  <p>orders@icbdelights.com</p>
+                  <p 
+                    onClick={() => sendEmail("hello@icbdelights.com")} 
+                    style={{ cursor: 'pointer', color: '#007bff' }}
+                  >
+                    hello@icbdelights.com
+                  </p>
+                  <p 
+                    onClick={() => sendEmail("orders@icbdelights.com")} 
+                    style={{ cursor: 'pointer', color: '#007bff' }}
+                  >
+                    orders@icbdelights.com
+                  </p>
                 </div>
               </div>
+              
               <div className="contact-item">
                 <div className="contact-icon">
                   <FaClock />
@@ -287,36 +273,18 @@ function Home() {
                 </div>
               </div>
             </div>
+            
             <div className="social-links">
-              <a href="#" className="social-link">
+              <a href="https://instagram.com/icbdelights" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaInstagram /> Instagram
               </a>
-              <a href="#" className="social-link">
+              <a href="https://facebook.com/icbdelights" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaFacebookF /> Facebook
               </a>
-              <a href="#" className="social-link">
-                <FaTwitter /> Twitter
+              <a href="#" onClick={(e) => { e.preventDefault(); openWhatsApp(); }} className="social-link">
+                <FaWhatsapp /> WhatsApp
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="newsletter">
-        <div className="container">
-          <div className="newsletter-content">
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get updates on new flavors and special offers!</p>
-            <form className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="newsletter-input"
-              />
-              <button type="submit" className="btn btn-primary">
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
       </section>
