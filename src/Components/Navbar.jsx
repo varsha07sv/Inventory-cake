@@ -22,10 +22,6 @@ function Navbar() {
           <FaUser className="nav-icon" />
           <span>Login</span>
         </Link>
-        <Link to="/admin">
-          <FaUserShield className="nav-icon" />
-          <span>Admin</span>
-        </Link>
       </div>
     </nav>
   );
