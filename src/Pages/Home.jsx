@@ -12,12 +12,9 @@ import {
   FaInstagram,
   FaFacebookF,
   FaWhatsapp,
-  FaStar,
   FaChevronRight
 } from "react-icons/fa";
-import { MdCake, MdDeliveryDining } from "react-icons/md";
-import { GiCupcake, GiChocolateBar } from "react-icons/gi";
-import { IoMdHappy } from "react-icons/io";
+import { MdDeliveryDining } from "react-icons/md";
 import "../styles/Home.css";
 
 function Home() {
@@ -25,11 +22,9 @@ function Home() {
 
   const handleExploreClick = (e) => {
     e.preventDefault();
-    // Check if user is logged in (you can modify this based on your auth logic)
     const isLoggedIn = false; // Replace with actual auth check
     
     if (!isLoggedIn) {
-      // Redirect to login page
       navigate('/login');
     } else {
       navigate('/products');
@@ -38,7 +33,6 @@ function Home() {
 
   const handleContactClick = (e) => {
     e.preventDefault();
-    // Scroll to contact section
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -59,31 +53,21 @@ function Home() {
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "919876543210"; // Without + and spaces
+    const phoneNumber = "919876543210";
     const message = encodeURIComponent("Hi! I'm interested in ordering a cake from ICB Delights.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   return (
     <div className="home">
-      <section 
-        className="hero" 
-        style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-          url('https://images.unsplash.com/photo-1562777717-dc6984f65a63?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          color: 'white'
-        }}
-      >
+      <section className="hero">
         <div className="hero-content">
-          <span className="hero-subtitle">Welcome to</span>
-          <h1 className="hero-title" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '4rem' }}>
+          <span className="hero-subtitle">WELCOME TO</span>
+          <h1 className="hero-title">
             ICB <span className="highlight">Delights</span>
           </h1>
           <p className="hero-description">
-            Crafting sweet memories with every bite. Freshly baked, 
-            lovingly decorated cakes for your special moments.
+            Crafting sweet memories with every bite. Freshly baked, lovingly decorated cakes for your special moments.
           </p>
           <div className="hero-buttons">
             <a href="/products" onClick={handleExploreClick} className="btn btn-primary">
@@ -105,28 +89,28 @@ function Home() {
                 <FaBirthdayCake />
               </div>
               <h3>Custom Designs</h3>
-              <p>Personalized cakes tailored to your vision and preferences</p>
+              <p>Personalized cakes tailored to your vision</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <FaLeaf />
               </div>
               <h3>Premium Ingredients</h3>
-              <p>Only the finest, freshest ingredients in every creation</p>
+              <p>Only the finest ingredients in every creation</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <MdDeliveryDining />
               </div>
               <h3>Fast Delivery</h3>
-              <p>Complimentary delivery within Chennai city limits</p>
+              <p>Free delivery within Chennai city limits</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <FaHeart />
               </div>
               <h3>Occasion Specialists</h3>
-              <p>Expert in birthdays, weddings, and all celebrations</p>
+              <p>Expert in all celebrations</p>
             </div>
           </div>
         </div>
@@ -216,7 +200,7 @@ function Home() {
                 <div>
                   <h4>Visit Us</h4>
                   <p>123 Bakery Street, Anna Nagar, Chennai - 600040</p>
-                  <p className="click-hint">Click to view on Google Maps</p>
+                  <small className="click-hint">Click to view on Google Maps</small>
                 </div>
               </div>
               
@@ -228,13 +212,13 @@ function Home() {
                   <h4>Call Us</h4>
                   <p 
                     onClick={() => makePhoneCall("+919876543210")} 
-                    style={{ cursor: 'pointer', color: '#007bff' }}
+                    className="clickable"
                   >
                     +91 98765 43210
                   </p>
                   <p 
                     onClick={() => makePhoneCall("+919876543211")} 
-                    style={{ cursor: 'pointer', color: '#007bff' }}
+                    className="clickable"
                   >
                     +91 98765 43211
                   </p>
@@ -249,13 +233,13 @@ function Home() {
                   <h4>Email Us</h4>
                   <p 
                     onClick={() => sendEmail("hello@icbdelights.com")} 
-                    style={{ cursor: 'pointer', color: '#007bff' }}
+                    className="clickable"
                   >
                     hello@icbdelights.com
                   </p>
                   <p 
                     onClick={() => sendEmail("orders@icbdelights.com")} 
-                    style={{ cursor: 'pointer', color: '#007bff' }}
+                    className="clickable"
                   >
                     orders@icbdelights.com
                   </p>
