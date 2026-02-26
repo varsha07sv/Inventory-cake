@@ -66,7 +66,7 @@ function Home() {
       {/* ── Features ── */}
       <section className="features">
         <div className="container">
-          <h2 className="section-title">Why Choose <span className="highlight">ICB Delights?</span></h2>
+          <h2 className="section-title">Why Choose ICB Delights ?</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon"><FaBirthdayCake /></div>
@@ -95,7 +95,7 @@ function Home() {
       {/* ── Products Showcase ── */}
       <section className="products-showcase">
         <div className="container">
-          <h2 className="section-title">Our <span className="highlight">Products</span></h2>
+          <h2 className="section-title">Our Products</h2>
           <p className="section-subtitle">Explore our delicious range of freshly baked treats</p>
 
           <div className="products-grid">
@@ -120,12 +120,6 @@ function Home() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="view-all-container">
-            <button onClick={() => navigate("/cakes")} className="btn btn-primary">
-              View All Products
-            </button>
           </div>
         </div>
       </section>
@@ -165,14 +159,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="contact-item">
-                <div className="contact-icon"><FaClock /></div>
-                <div>
-                  <h4>Working Hours</h4>
-                  <p>Mon – Sat: 9:00 AM – 8:00 PM</p>
-                  <p>Sunday: 10:00 AM – 6:00 PM</p>
-                </div>
-              </div>
+
             </div>
 
             <div className="social-links">

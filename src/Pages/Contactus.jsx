@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaUser, FaMobile, FaEnvelope, FaCalendar, FaCity, FaMapMarkerAlt } from "react-icons/fa";
+import { FaUser, FaMobile, FaEnvelope, FaCalendar, FaCity, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { MdLocationOn, MdAccessTime } from "react-icons/md";
-import "../styles/Contact.css";
+import "../Styles/Contactus.css";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -14,7 +14,8 @@ function Contact() {
     day: "00",
     ampm: "AM",
     city: "",
-    zipCode: ""
+    zipCode: "",
+    requirement: "" // Added for specific requirement details
   });
 
   const handleChange = (e) => {
@@ -27,9 +28,26 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validate form before submission
+    if (!formData.firstName || !formData.lastName || !formData.mobile || 
+        !formData.email || !formData.date || !formData.city || !formData.zipCode) {
+      alert("Please fill in all required fields!");
+      return;
+    }
+    
+    // Construct full date time string
+    const dateTimeString = `${formData.date} | Day: ${formData.day} | Month: ${formData.month} | ${formData.ampm}`;
+    
     // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Enquiry submitted successfully!");
+    console.log("Form submitted:", {
+      ...formData,
+      fullDateTime: dateTimeString
+    });
+    
+    alert("Enquiry submitted successfully! We'll get back to you within 24 hours.");
+    
+    // Optional: Reset form after successful submission
+    handleReset();
   };
 
   const handleReset = () => {
@@ -43,20 +61,29 @@ function Contact() {
       day: "00",
       ampm: "AM",
       city: "",
-      zipCode: ""
+      zipCode: "",
+      requirement: ""
     });
   };
 
   // Generate options for days (1-31)
   const dayOptions = [];
   for (let i = 1; i <= 31; i++) {
-    dayOptions.push(<option key={i} value={i.toString().padStart(2, '0')}>{i.toString().padStart(2, '0')}</option>);
+    dayOptions.push(
+      <option key={i} value={i.toString().padStart(2, '0')}>
+        {i.toString().padStart(2, '0')}
+      </option>
+    );
   }
 
   // Generate options for months (1-12)
   const monthOptions = [];
   for (let i = 1; i <= 12; i++) {
-    monthOptions.push(<option key={i} value={i.toString().padStart(2, '0')}>{i.toString().padStart(2, '0')}</option>);
+    monthOptions.push(
+      <option key={i} value={i.toString().padStart(2, '0')}>
+        {i.toString().padStart(2, '0')}
+      </option>
+    );
   }
 
   return (
@@ -64,7 +91,9 @@ function Contact() {
       <div className="contact-container">
         <div className="contact-header">
           <h1 className="contact-title">Enquiry <span className="highlight">Form</span></h1>
-          <p className="contact-subtitle">We'd love to hear from you! Please fill out the form below.</p>
+          <p className="contact-subtitle">
+            We'd love to hear from you! Please fill out the form below and we'll get back to you shortly.
+          </p>
         </div>
 
         <div className="contact-wrapper">
@@ -114,12 +143,25 @@ function Contact() {
                   </div>
                 </div>
               </div>
+
+              {/* Social Media Links */}
+              <div className="info-social">
+                <h4>Follow Us</h4>
+                <div className="social-icons">
+                  <a href="#" className="social-icon">📘</a>
+                  <a href="#" className="social-icon">📷</a>
+                  <a href="#" className="social-icon">🐦</a>
+                  <a href="#" className="social-icon">📌</a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Right side - Enquiry Form */}
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
+              <h3 className="form-title">Send us a Message</h3>
+              
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
@@ -172,6 +214,8 @@ function Contact() {
                       onChange={handleChange}
                       placeholder="Enter your mobile number"
                       required
+                      pattern="[0-9]{10}"
+                      title="Please enter a valid 10-digit mobile number"
                       className="form-input"
                     />
                   </div>
@@ -210,6 +254,8 @@ function Contact() {
                       onChange={handleChange}
                       placeholder="DD/MM/YYYY"
                       pattern="\d{2}/\d{2}/\d{4}"
+                      title="Please enter date in DD/MM/YYYY format"
+                      required
                       className="date-field"
                     />
                   </div>
@@ -219,7 +265,9 @@ function Contact() {
                     value={formData.day} 
                     onChange={handleChange}
                     className="datetime-select"
+                    required
                   >
+                    <option value="00">Day</option>
                     {dayOptions}
                   </select>
                   <span className="datetime-separator">▼</span>
@@ -228,7 +276,9 @@ function Contact() {
                     value={formData.month} 
                     onChange={handleChange}
                     className="datetime-select"
+                    required
                   >
+                    <option value="00">Month</option>
                     {monthOptions}
                   </select>
                   <span className="datetime-separator">▼</span>
@@ -237,12 +287,27 @@ function Contact() {
                     value={formData.ampm} 
                     onChange={handleChange}
                     className="datetime-select"
+                    required
                   >
                     <option value="AM">AM</option>
                     <option value="PM">PM</option>
                   </select>
                 </div>
                 <small className="datetime-hint">Format: DD/MM/YYYY | Day | Month | AM/PM</small>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">
+                  Requirement Details:
+                </label>
+                <textarea
+                  name="requirement"
+                  value={formData.requirement}
+                  onChange={handleChange}
+                  placeholder="Tell us about your requirement (cake type, flavor, customization, etc.)"
+                  rows="4"
+                  className="form-textarea"
+                />
               </div>
 
               <div className="form-row">
@@ -277,6 +342,8 @@ function Contact() {
                       onChange={handleChange}
                       placeholder="Enter zip code"
                       required
+                      pattern="[0-9]{6}"
+                      title="Please enter a valid 6-digit pincode"
                       className="form-input"
                     />
                   </div>
@@ -285,12 +352,16 @@ function Contact() {
 
               <div className="form-buttons">
                 <button type="submit" className="btn-submit">
-                  SUBMIT
+                  SUBMIT ENQUIRY
                 </button>
                 <button type="button" onClick={handleReset} className="btn-reset">
-                  RESET
+                  RESET FORM
                 </button>
               </div>
+
+              <p className="form-note">
+                <span className="required">*</span> Required fields
+              </p>
             </form>
           </div>
         </div>

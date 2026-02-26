@@ -235,7 +235,7 @@ function Login() {
             
             {step === 'email' && (
               <>
-                <h2 className="login-title">Welcome to Cake Shop</h2>
+                <h2 className="login-title">Welcome to ICB Delights</h2>
                 <p className="login-subtitle">Sign in with your email to order delicious cakes</p>
               </>
             )}
@@ -506,7 +506,7 @@ function Login() {
             <p className="signup-text">
               {step === 'email' ? (
                 <>
-                  New to Cake Shop?{' '}
+                  New User ?{' '}
                   <button type="button" className="signup-link" onClick={() => setStep('register')}>
                     Create Account
                   </button>
