@@ -1,24 +1,21 @@
-/* Login.css */
+/* Login.css - Lavender Theme */
 
 :root {
-  --primary: #8b5cf6;
-  --primary-dark: #7c3aed;
-  --primary-light: #a78bfa;
-  --lavender-50: #f5f3ff;
-  --lavender-100: #ede9fe;
-  --lavender-200: #ddd6fe;
-  --lavender-300: #c4b5fd;
-  --lavender-400: #a78bfa;
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
+  --lavender-primary: #9b6b9d;
+  --lavender-secondary: #b185b3;
+  --lavender-light: #d9b0d9;
+  --lavender-soft: #c8a2c8;
+  --lavender-bg-light: #f8f0fc;
+  --lavender-extra-light: #f3e5f5;
+  --lavender-dark: #4a2c4d;
+  --lavender-text: #6b4e71;
+  --gradient-lavender: linear-gradient(135deg, #9b6b9d 0%, #b185b3 50%, #d9b0d9 100%);
+  --gradient-light: linear-gradient(135deg, #f8f0fc 0%, #f3e5f5 100%);
+  --shadow-sm: 0 4px 15px rgba(155, 107, 157, 0.1);
+  --shadow-md: 0 8px 25px rgba(155, 107, 157, 0.15);
+  --shadow-lg: 0 15px 35px rgba(155, 107, 157, 0.2);
+  --shadow-hover: 0 20px 40px rgba(155, 107, 157, 0.25);
+  
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
@@ -37,7 +34,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-lavender);
   overflow: hidden;
   padding: 20px;
 }
@@ -55,7 +52,7 @@
 .bg-circle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(243, 229, 245, 0.1);
   animation: float 20s infinite;
 }
 
@@ -106,8 +103,8 @@
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(243, 229, 245, 0.3);
   animation: cardAppear 0.6s ease-out;
 }
 
@@ -131,13 +128,13 @@
 .logo-wrapper {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--primary), var(--lavender-400));
+  background: var(--gradient-lavender);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 20px rgba(155, 107, 157, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -152,18 +149,19 @@
 
 .logo-icon {
   color: white;
+  font-size: 2rem;
 }
 
 .login-title {
   font-size: 28px;
   font-weight: 700;
-  color: var(--gray-800);
+  color: var(--lavender-dark);
   margin-bottom: 8px;
 }
 
 .login-subtitle {
   font-size: 14px;
-  color: var(--gray-500);
+  color: var(--lavender-text);
 }
 
 /* Error Message */
@@ -203,7 +201,7 @@
 .input-label {
   font-size: 14px;
   font-weight: 500;
-  color: var(--gray-700);
+  color: var(--lavender-dark);
   margin-left: 4px;
 }
 
@@ -216,7 +214,7 @@
 .forgot-password {
   background: none;
   border: none;
-  color: var(--primary);
+  color: var(--lavender-primary);
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
@@ -224,7 +222,7 @@
 
 .forgot-password:hover {
   text-decoration: underline;
-  color: var(--primary-dark);
+  color: var(--lavender-secondary);
 }
 
 .input-wrapper {
@@ -236,28 +234,35 @@
 .input-icon {
   position: absolute;
   left: 14px;
-  color: var(--gray-400);
+  color: var(--lavender-text);
   transition: color 0.2s;
 }
 
 .input-field {
   width: 100%;
   padding: 14px 20px 14px 45px;
-  border: 2px solid var(--gray-200);
+  border: 2px solid var(--lavender-light);
   border-radius: 16px;
   font-size: 15px;
   transition: all 0.3s;
-  background: white;
+  background: var(--lavender-bg-light);
+  color: var(--lavender-dark);
+}
+
+.input-field::placeholder {
+  color: var(--lavender-soft);
+  opacity: 0.7;
 }
 
 .input-field:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+  border-color: var(--lavender-primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(155, 107, 157, 0.1);
 }
 
 .input-field:focus + .input-icon {
-  color: var(--primary);
+  color: var(--lavender-primary);
 }
 
 .input-wrapper.error .input-field {
@@ -273,7 +278,7 @@
   right: 14px;
   background: none;
   border: none;
-  color: var(--gray-400);
+  color: var(--lavender-text);
   cursor: pointer;
   padding: 4px;
   display: flex;
@@ -283,7 +288,7 @@
 }
 
 .password-toggle:hover {
-  color: var(--primary);
+  color: var(--lavender-primary);
 }
 
 .field-error {
@@ -309,14 +314,14 @@
   gap: 8px;
   cursor: pointer;
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--lavender-text);
 }
 
 .checkbox-container input[type="checkbox"] {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: var(--primary);
+  accent-color: var(--lavender-primary);
 }
 
 .checkbox-text {
@@ -325,7 +330,7 @@
 
 /* Login Button */
 .login-button {
-  background: linear-gradient(135deg, var(--primary), var(--lavender-400));
+  background: var(--gradient-lavender);
   color: white;
   border: none;
   border-radius: 16px;
@@ -350,13 +355,13 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(243, 229, 245, 0.3), transparent);
   transition: left 0.5s;
 }
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 25px rgba(155, 107, 157, 0.4);
 }
 
 .login-button:hover:not(:disabled)::before {
@@ -373,13 +378,13 @@
 }
 
 .login-button.loading {
-  background: var(--primary);
+  background: var(--lavender-primary);
 }
 
 .spinner {
   width: 20px;
   height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(243, 229, 245, 0.3);
   border-top-color: white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -397,14 +402,14 @@
 
 .signup-text {
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--lavender-text);
   margin-bottom: 20px;
 }
 
 .signup-link {
   background: none;
   border: none;
-  color: var(--primary);
+  color: var(--lavender-primary);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -412,33 +417,33 @@
 
 .signup-link:hover {
   text-decoration: underline;
-  color: var(--primary-dark);
+  color: var(--lavender-secondary);
 }
 
 /* Demo Credentials */
 .demo-credentials {
-  background: var(--lavender-50);
+  background: var(--lavender-extra-light);
   border-radius: 16px;
   padding: 16px;
-  border: 1px dashed var(--lavender-300);
+  border: 1px dashed var(--lavender-primary);
   animation: glow 2s infinite;
 }
 
 @keyframes glow {
   0%, 100% {
-    border-color: var(--lavender-300);
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.1);
+    border-color: var(--lavender-primary);
+    box-shadow: 0 0 10px rgba(155, 107, 157, 0.1);
   }
   50% {
-    border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    border-color: var(--lavender-secondary);
+    box-shadow: 0 0 20px rgba(155, 107, 157, 0.2);
   }
 }
 
 .demo-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--gray-700);
+  color: var(--lavender-dark);
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -450,7 +455,7 @@
   justify-content: space-between;
   font-size: 13px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--lavender-200);
+  border-bottom: 1px solid var(--lavender-light);
 }
 
 .credential-item:last-child {
@@ -458,7 +463,7 @@
 }
 
 .credential-item span {
-  color: var(--gray-600);
+  color: var(--lavender-text);
 }
 
 .credential-item code {
@@ -466,16 +471,16 @@
   padding: 4px 8px;
   border-radius: 6px;
   font-family: monospace;
-  color: var(--primary);
+  color: var(--lavender-primary);
   font-weight: 500;
-  border: 1px solid var(--lavender-200);
+  border: 1px solid var(--lavender-light);
 }
 
 /* Decorative Text */
 .login-decoration {
   text-align: center;
   margin-top: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(243, 229, 245, 0.8);
   font-size: 14px;
   animation: fadeInUp 1s ease-out 0.3s both;
 }
@@ -519,7 +524,8 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   .login-card {
-    background: rgba(31, 41, 55, 0.95);
+    background: rgba(74, 44, 77, 0.95);
+    backdrop-filter: blur(10px);
   }
 
   .login-title {
@@ -527,41 +533,115 @@
   }
 
   .login-subtitle {
-    color: var(--gray-400);
+    color: var(--lavender-light);
   }
 
   .input-label {
-    color: var(--gray-300);
+    color: var(--lavender-extra-light);
   }
 
   .input-field {
-    background: var(--gray-800);
-    border-color: var(--gray-700);
+    background: rgba(107, 78, 113, 0.2);
+    border-color: var(--lavender-text);
     color: white;
   }
 
   .input-field::placeholder {
-    color: var(--gray-500);
+    color: var(--lavender-light);
+    opacity: 0.5;
+  }
+
+  .input-field:focus {
+    background: rgba(107, 78, 113, 0.3);
   }
 
   .checkbox-text {
-    color: var(--gray-300);
+    color: var(--lavender-light);
   }
 
   .demo-credentials {
-    background: var(--gray-800);
+    background: rgba(74, 44, 77, 0.5);
   }
 
   .demo-title {
-    color: var(--gray-300);
+    color: var(--lavender-light);
   }
 
   .credential-item span {
-    color: var(--gray-400);
+    color: var(--lavender-light);
   }
 
   .credential-item code {
-    background: var(--gray-900);
-    color: var(--lavender-300);
+    background: var(--lavender-dark);
+    color: var(--lavender-light);
+    border-color: var(--lavender-primary);
   }
+
+  .input-icon {
+    color: var(--lavender-light);
+  }
+  
+  .password-toggle {
+    color: var(--lavender-light);
+  }
+  
+  .password-toggle:hover {
+    color: var(--lavender-extra-light);
+  }
+  
+  .forgot-password {
+    color: var(--lavender-light);
+  }
+  
+  .forgot-password:hover {
+    color: var(--lavender-extra-light);
+  }
+  
+  .signup-text {
+    color: var(--lavender-light);
+  }
+  
+  .signup-link {
+    color: var(--lavender-light);
+  }
+  
+  .signup-link:hover {
+    color: var(--lavender-extra-light);
+  }
+}
+
+/* Additional Lavender Theme Elements */
+::selection {
+  background: var(--lavender-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--lavender-primary);
+  color: white;
+}
+
+/* Focus States */
+*:focus {
+  outline: 2px solid var(--lavender-primary);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lavender-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lavender-primary);
+  border-radius: 6px;
+  border: 3px solid var(--lavender-bg-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lavender-secondary);
 }

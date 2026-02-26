@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import { FaHome, FaUser, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaUser, FaPhone, FaEnvelope, FaMagic } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
+import { GiCakeSlice } from "react-icons/gi";
+import { MdCake } from "react-icons/md";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -14,6 +16,11 @@ function Navbar() {
         <Link to="/">
           <FaHome className="nav-icon" />
           <span>Home</span>
+        </Link>
+        
+        <Link to="/make-your-own" className="make-cake-link">
+          <GiCakeSlice className="nav-icon make-cake-icon" />
+          <span>Make Your Own</span>
         </Link>
         
         <Link to="/cart" className="cart-link">

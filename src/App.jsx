@@ -8,7 +8,8 @@ import Home      from "./Pages/Home";
 import Login     from "./Pages/Login";
 import Inventory from "./Pages/Inventory";
 import Cart      from "./Pages/Cart";
-
+import Contact   from "./Pages/Contactus";
+import MakeYourOwnCake from "./Pages/MakeYourOwn";  
 /* Category pages */
 import Cakes       from "./Pages/Product/Cakes";
 import Bentocakes  from "./Pages/Product/Bentocakes";
@@ -31,7 +32,8 @@ function App() {
             <Route path="/login"     element={<Login />} />
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/cart"      element={<Cart />} />
-
+<Route path="/contact"   element={<Contact />} />
+            <Route path="/make-your-own" element={<MakeYourOwnCake />} />
             <Route path="/cakes"       element={<Cakes />} />
             <Route path="/bentocakes"  element={<Bentocakes />} />
             <Route path="/brownie"     element={<Brownie />} />
