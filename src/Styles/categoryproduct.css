@@ -248,7 +248,7 @@
   border-radius: 20px;
 }
 
-.cp-order-btn {
+.cp-cart-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -263,7 +263,7 @@
   transition: var(--cp-transition);
 }
 
-.cp-order-btn:hover {
+.cp-cart-btn:hover {
   background: var(--cp-primary-dk);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(128,90,213,0.35);
@@ -300,4 +300,79 @@
   .cp-hero-emoji { font-size: 2.2rem; }
   .cp-grid { grid-template-columns: 1fr; gap: 12px; }
   .cp-section-title { font-size: 1.3rem; }
+}
+
+/* ── Cart nav button in hero ── */
+.cp-hero-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cp-cart-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.cp-cart-nav-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.cp-cart-nav-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #fff;
+  color: #805ad5;
+  font-size: 0.65rem;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Add to Cart button ── */
+.cp-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cp-primary);
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cp-cart-btn:hover {
+  background: var(--cp-primary-dk);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(128,90,213,0.35);
+}
+
+/* Green "Added!" state */
+.cp-cart-btn-added {
+  background: #10b981 !important;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3) !important;
+  transform: scale(1.04);
 }

@@ -1,9 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context/AuthContext";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
+import { CartProvider } from "./Context/CartContext";
+import Navbar    from "./Components/Navbar";
+
+/* Main pages */
+import Home      from "./Pages/Home";
+import Login     from "./Pages/Login";
 import Inventory from "./Pages/Inventory";
-import Navbar from "./Components/Navbar";
+import Cart      from "./Pages/Cart";
+
+/* Category pages */
 import Cakes       from "./Pages/Product/Cakes";
 import Bentocakes  from "./Pages/Product/Bentocakes";
 import Brownie     from "./Pages/Product/Brownie";
@@ -18,24 +24,25 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        
-          <Route path="/login" element={<Login />} />
-          <Route path="/inventory" element={<Inventory />} />
+        <CartProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/"          element={<Home />} />
+            <Route path="/login"     element={<Login />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/cart"      element={<Cart />} />
 
-
-          <Route path="/cakes"       element={<Cakes />} />
-          <Route path="/bentocakes"  element={<Bentocakes />} />
-          <Route path="/brownie"     element={<Brownie />} />
-          <Route path="/cupcakes"    element={<Cupcakes />} />
-          <Route path="/jarcake"     element={<Jarcake />} />
-          <Route path="/cookies"     element={<Cookies />} />
-          <Route path="/celebration" element={<Celebration />} />
-          <Route path="/desserts"    element={<Desserts />} />
-          <Route path="/chocolates"  element={<Chocolates />} />
-        </Routes>
+            <Route path="/cakes"       element={<Cakes />} />
+            <Route path="/bentocakes"  element={<Bentocakes />} />
+            <Route path="/brownie"     element={<Brownie />} />
+            <Route path="/cupcakes"    element={<Cupcakes />} />
+            <Route path="/jarcake"     element={<Jarcake />} />
+            <Route path="/cookies"     element={<Cookies />} />
+            <Route path="/celebration" element={<Celebration />} />
+            <Route path="/desserts"    element={<Desserts />} />
+            <Route path="/chocolates"  element={<Chocolates />} />
+          </Routes>
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );

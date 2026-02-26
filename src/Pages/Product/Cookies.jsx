@@ -1,28 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft, FaWhatsapp } from "react-icons/fa";
+import { FaArrowLeft, FaShoppingCart, FaCheck } from "react-icons/fa";
+import { useCart } from "../../Context/CartContext";
+import { useState } from "react";
 import "../../styles/categoryproduct.css";
 
 const items = [
   { id:1, name:"Chocolate Chip Cookies", image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&auto=format", description:"Buttery golden cookies packed with premium chocolate chips." },
   { id:2, name:"Oatmeal Cookies",        image:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format", description:"Wholesome oat cookies with plump raisins and a hint of cinnamon." },
-  { id:3, name:"Sugar Cookies",          image:"https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500&auto=format", description:"Melt-in-your-mouth buttery sugar cookies, lightly dusted with icing sugar." }
+  { id:3, name:"Sugar Cookies",          image:"https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500&auto=format", description:"Melt-in-your-mouth buttery sugar cookies lightly dusted with icing sugar." }
 ];
 
 function Cookies() {
   const navigate = useNavigate();
+  const { addToCart, totalItems } = useCart();
+  const [added, setAdded] = useState({});
 
-  const orderOnWhatsApp = (itemName) => {
-    const msg = encodeURIComponent(`Hi! I'd like to order: ${itemName} from ICB Delights.`);
-    window.open(`https://wa.me/919876543210?text=${msg}`, "_blank");
+  const handleAdd = (item) => {
+    addToCart({ ...item, category: "Cookie", price: 199 });
+    setAdded((prev) => ({ ...prev, [item.id]: true }));
+    setTimeout(() => setAdded((prev) => ({ ...prev, [item.id]: false })), 1500);
   };
 
   return (
     <div className="cp-page">
       <div className="cp-hero">
         <div className="cp-hero-inner">
-          <button className="cp-back-btn" onClick={() => navigate(-1)}>
-            <FaArrowLeft /> Back
-          </button>
+          <div className="cp-hero-top-row">
+            <button className="cp-back-btn" onClick={() => navigate(-1)}>
+              <FaArrowLeft /> Back
+            </button>
+            <button className="cp-cart-nav-btn" onClick={() => navigate("/cart")}>
+              <FaShoppingCart />
+              {totalItems > 0 && <span className="cp-cart-nav-count">{totalItems}</span>}
+              Cart
+            </button>
+          </div>
           <span className="cp-hero-emoji">🍪</span>
           <h1 className="cp-hero-title">Cookies</h1>
           <p className="cp-hero-subtitle">Freshly baked cookies — crispy outside, chewy inside</p>
@@ -39,7 +51,7 @@ function Cookies() {
               <div className="cp-card-img-wrap">
                 <img src={item.image} alt={item.name} loading="lazy" />
                 <div className="cp-card-overlay">
-                  <span>Order Now ➜</span>
+                  <span>View Details ➜</span>
                 </div>
               </div>
               <div className="cp-card-body">
@@ -48,10 +60,14 @@ function Cookies() {
                 <div className="cp-card-footer">
                   <span className="cp-card-tag">Cookie</span>
                   <button
-                    className="cp-order-btn"
-                    onClick={() => orderOnWhatsApp(item.name)}
+                    className={`cp-cart-btn ${added[item.id] ? "cp-cart-btn-added" : ""}`}
+                    onClick={() => handleAdd(item)}
                   >
-                    <FaWhatsapp /> Order
+                    {added[item.id] ? (
+                      <><FaCheck /> Added!</>
+                    ) : (
+                      <><FaShoppingCart /> Add to Cart</>
+                    )}
                   </button>
                 </div>
               </div>

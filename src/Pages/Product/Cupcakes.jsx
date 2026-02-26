@@ -1,29 +1,41 @@
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft, FaWhatsapp } from "react-icons/fa";
+import { FaArrowLeft, FaShoppingCart, FaCheck } from "react-icons/fa";
+import { useCart } from "../../Context/CartContext";
+import { useState } from "react";
 import "../../styles/categoryproduct.css";
 
 const items = [
-  { id:1, name:"Chocolate Cupcakes",    image:"https://images.unsplash.com/photo-1587668178277-295251f900ce?w=500&auto=format", description:"Moist chocolate sponge topped with a swirl of rich chocolate buttercream." },
-  { id:2, name:"Vanilla Cupcakes",      image:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&auto=format", description:"Classic vanilla cupcake with fluffy vanilla bean buttercream frosting." },
-  { id:3, name:"Red Velvet Cupcakes",   image:"https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format", description:"Beautiful red velvet cupcakes with tangy cream cheese frosting." },
-  { id:4, name:"Lemon Cupcakes",        image:"https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&auto=format", description:"Zesty lemon sponge with a light lemon curd buttercream topping." }
+  { id:1, name:"Chocolate Cupcakes",  image:"https://images.unsplash.com/photo-1587668178277-295251f900ce?w=500&auto=format", description:"Moist chocolate sponge topped with a swirl of rich chocolate buttercream." },
+  { id:2, name:"Vanilla Cupcakes",    image:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&auto=format", description:"Classic vanilla cupcake with fluffy vanilla bean buttercream frosting." },
+  { id:3, name:"Red Velvet Cupcakes", image:"https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format", description:"Beautiful red velvet cupcakes with tangy cream cheese frosting." },
+  { id:4, name:"Lemon Cupcakes",      image:"https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&auto=format", description:"Zesty lemon sponge with a light lemon curd buttercream topping." }
 ];
 
 function Cupcakes() {
   const navigate = useNavigate();
+  const { addToCart, totalItems } = useCart();
+  const [added, setAdded] = useState({});
 
-  const orderOnWhatsApp = (itemName) => {
-    const msg = encodeURIComponent(`Hi! I'd like to order: ${itemName} from ICB Delights.`);
-    window.open(`https://wa.me/919876543210?text=${msg}`, "_blank");
+  const handleAdd = (item) => {
+    addToCart({ ...item, category: "Cupcake", price: 249 });
+    setAdded((prev) => ({ ...prev, [item.id]: true }));
+    setTimeout(() => setAdded((prev) => ({ ...prev, [item.id]: false })), 1500);
   };
 
   return (
     <div className="cp-page">
       <div className="cp-hero">
         <div className="cp-hero-inner">
-          <button className="cp-back-btn" onClick={() => navigate(-1)}>
-            <FaArrowLeft /> Back
-          </button>
+          <div className="cp-hero-top-row">
+            <button className="cp-back-btn" onClick={() => navigate(-1)}>
+              <FaArrowLeft /> Back
+            </button>
+            <button className="cp-cart-nav-btn" onClick={() => navigate("/cart")}>
+              <FaShoppingCart />
+              {totalItems > 0 && <span className="cp-cart-nav-count">{totalItems}</span>}
+              Cart
+            </button>
+          </div>
           <span className="cp-hero-emoji">🧁</span>
           <h1 className="cp-hero-title">Cup Cakes</h1>
           <p className="cp-hero-subtitle">Perfectly portioned cupcakes for every mood</p>
@@ -40,7 +52,7 @@ function Cupcakes() {
               <div className="cp-card-img-wrap">
                 <img src={item.image} alt={item.name} loading="lazy" />
                 <div className="cp-card-overlay">
-                  <span>Order Now ➜</span>
+                  <span>View Details ➜</span>
                 </div>
               </div>
               <div className="cp-card-body">
@@ -49,10 +61,14 @@ function Cupcakes() {
                 <div className="cp-card-footer">
                   <span className="cp-card-tag">Cupcake</span>
                   <button
-                    className="cp-order-btn"
-                    onClick={() => orderOnWhatsApp(item.name)}
+                    className={`cp-cart-btn ${added[item.id] ? "cp-cart-btn-added" : ""}`}
+                    onClick={() => handleAdd(item)}
                   >
-                    <FaWhatsapp /> Order
+                    {added[item.id] ? (
+                      <><FaCheck /> Added!</>
+                    ) : (
+                      <><FaShoppingCart /> Add to Cart</>
+                    )}
                   </button>
                 </div>
               </div>
