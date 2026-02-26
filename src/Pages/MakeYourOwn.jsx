@@ -14,6 +14,7 @@ import {
   FaApple,
   FaCookieBite,
   FaBirthdayCake,
+  FaRegComment,
   FaRegStar,
   FaRegLemon,
   FaRegGrinStars,
