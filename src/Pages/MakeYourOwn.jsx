@@ -56,8 +56,8 @@ function MakeYourOwnCake() {
   const [pincode, setPincode] = useState("");
   const [isEggless, setIsEggless] = useState(false);
   const [selectedToppings, setSelectedToppings] = useState([]);
-  const [uploadedImage, setUploadedImage] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [cakeColor, setCakeColor] = useState("#8B4513"); // Default chocolate color
 
   // Shapes array - using valid icons and emojis
   const shapes = [
@@ -65,14 +65,6 @@ function MakeYourOwnCake() {
     { id: "square", name: "Square", icon: <FaSquare />, image: "⬛", price: 0 },
     { id: "heart", name: "Heart", icon: <FaHeart />, image: "❤️", price: 100 },
     { id: "rectangle", name: "Rectangle", icon: "▭", image: "▭", price: 0 },
-    { id: "oval", name: "Oval", icon: "⬭", image: "⬭", price: 0 },
-    { id: "number", name: "Number", icon: "1️⃣", image: "🔢", price: 150 },
-    { id: "star", name: "Star", icon: <FaRegStar />, image: "⭐", price: 100 },
-    { id: "mickey", name: "Mickey", icon: "🐭", image: "🐭", price: 200 },
-    { id: "princess", name: "Princess", icon: "👸", image: "👸", price: 200 },
-    { id: "car", name: "Car", icon: "🚗", image: "🚗", price: 250 },
-    { id: "butterfly", name: "Butterfly", icon: "🦋", image: "🦋", price: 150 },
-    { id: "flower", name: "Flower", icon: "🌸", image: "🌸", price: 100 }
   ];
 
   // Flavors array - Using only Font Awesome icons
@@ -169,7 +161,7 @@ function MakeYourOwnCake() {
   // Calculate total price whenever selections change
   useEffect(() => {
     calculateTotalPrice();
-  }, [selectedShape, selectedFlavor, selectedWeight, isEggless, selectedToppings, cakeMessage, uploadedImage]);
+  }, [selectedShape, selectedFlavor, selectedWeight, isEggless, selectedToppings, cakeMessage]);
 
   const calculateTotalPrice = () => {
     // Base price from weight
@@ -193,12 +185,14 @@ function MakeYourOwnCake() {
     // Message surcharge (if message length > 0)
     const messageSurcharge = cakeMessage.length > 0 ? 50 : 0;
     
-    // Photo surcharge (if image uploaded)
-    const photoSurcharge = uploadedImage ? 100 : 0;
-    
-    const total = weightPrice + shapePrice + flavorPrice + toppingsPrice + egglessSurcharge + messageSurcharge + photoSurcharge;
+    const total = weightPrice + shapePrice + flavorPrice + toppingsPrice + egglessSurcharge + messageSurcharge;
     
     setTotalPrice(Math.round(total));
+  };
+
+  const handleFlavorClick = (flavorId, color) => {
+    setSelectedFlavor(flavorId);
+    setCakeColor(color);
   };
 
   const handleToppingToggle = (toppingId) => {
@@ -207,17 +201,6 @@ function MakeYourOwnCake() {
         ? prev.filter(id => id !== toppingId)
         : [...prev, toppingId]
     );
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setUploadedImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
   };
 
   const handleMessageChange = (e) => {
@@ -247,7 +230,6 @@ function MakeYourOwnCake() {
       message: cakeMessage,
       toppings: selectedToppings.map(id => toppings.find(t => t.id === id)?.name),
       pincode: pincode,
-      image: uploadedImage ? "Yes" : "No",
       totalPrice: `₹${totalPrice}`
     };
     console.log("Order placed:", orderDetails);
@@ -333,7 +315,7 @@ function MakeYourOwnCake() {
                 <div
                   key={flavor.id}
                   className={`flavor-option ${selectedFlavor === flavor.id ? 'selected' : ''}`}
-                  onClick={() => setSelectedFlavor(flavor.id)}
+                  onClick={() => handleFlavorClick(flavor.id, flavor.color)}
                   style={{ borderColor: flavor.color }}
                 >
                   <span className="flavor-icon" style={{ color: flavor.color }}>
@@ -412,32 +394,6 @@ function MakeYourOwnCake() {
             )}
           </div>
 
-          {/* Upload Photo */}
-          <div className="customization-section">
-            <h3 className="section-subtitle">Upload Photo for Personal Touch</h3>
-            <div className="upload-section">
-              <input
-                type="file"
-                id="image-upload"
-                accept="image/*"
-                onChange={handleImageUpload}
-                className="upload-input"
-              />
-              <label htmlFor="image-upload" className="upload-label">
-                <FaUpload className="upload-icon" />
-                <span>Click to upload your photo (+₹100)</span>
-              </label>
-              {uploadedImage && (
-                <div className="upload-preview">
-                  <img src={uploadedImage} alt="Preview" />
-                  <button className="remove-image" onClick={() => setUploadedImage(null)}>
-                    ✕
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-
           {/* Message on Cake */}
           <div className="customization-section">
             <h3 className="section-subtitle">Message On Cake</h3>
@@ -478,29 +434,21 @@ function MakeYourOwnCake() {
             <h3 className="preview-title">Your Cake Preview</h3>
             <div className="cake-preview-container">
               <div className={`cake-preview-shape ${selectedShape}`}>
-                <div className="cake-base">
-                  <div className="cake-layer layer-1"></div>
-                  <div className="cake-layer layer-2"></div>
-                  <div className="cake-layer layer-3"></div>
+                <div className="cake-base" style={{ background: cakeColor }}>
+                  <div className="cake-layer layer-1" style={{ background: cakeColor }}></div>
+                  <div className="cake-layer layer-2" style={{ background: cakeColor }}></div>
+                  <div className="cake-layer layer-3" style={{ background: cakeColor }}></div>
                 </div>
                 <div className="cake-toppings">
-                  {selectedToppings.slice(0, 5).map(topping => (
+                  {selectedToppings.map(topping => (
                     <span key={topping} className="topping-indicator">
                       {toppings.find(t => t.id === topping)?.emoji}
                     </span>
                   ))}
-                  {selectedToppings.length > 5 && (
-                    <span className="topping-indicator">+{selectedToppings.length - 5}</span>
-                  )}
                 </div>
                 {cakeMessage && (
                   <div className="cake-message-preview">
                     {cakeMessage.length > 20 ? cakeMessage.substring(0, 20) + '...' : cakeMessage}
-                  </div>
-                )}
-                {uploadedImage && (
-                  <div className="photo-preview-badge">
-                    📸 Photo Added
                   </div>
                 )}
               </div>
