@@ -23,22 +23,12 @@ function Bentocakes() {
 
   return (
     <div className="cp-page">
-      <div className="cp-hero">
-        <div className="cp-hero-inner">
-          <div className="cp-hero-top-row">
-            <button className="cp-back-btn" onClick={() => navigate(-1)}>
-              <FaArrowLeft /> Back
-            </button>
-            <button className="cp-cart-nav-btn" onClick={() => navigate("/cart")}>
-              <FaShoppingCart />
-              {totalItems > 0 && <span className="cp-cart-nav-count">{totalItems}</span>}
-              Cart
-            </button>
-          </div>
-          <span className="cp-hero-emoji">🍱</span>
-          <h1 className="cp-hero-title">Bento Cakes</h1>
-          <p className="cp-hero-subtitle">Adorable single-serve mini cakes packed in a cute box</p>
-        </div>
+
+      {/*── Top bar: back + cart only── */}
+      <div className="cp-topbar">
+        <button className="cp-back-btn" onClick={() => navigate(-1)}>
+          <FaArrowLeft /> Back
+        </button>
       </div>
 
       <div className="cp-content">
