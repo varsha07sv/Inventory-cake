@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaHome, FaShoppingBag, FaUser, FaUserShield } from "react-icons/fa";
+import { FaHome, FaUser, FaPhone, FaEnvelope } from "react-icons/fa";
+import { BsCart3 } from "react-icons/bs";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -14,10 +15,18 @@ function Navbar() {
           <FaHome className="nav-icon" />
           <span>Home</span>
         </Link>
-        <Link to="/products">
-          <FaShoppingBag className="nav-icon" />
-          <span>Products</span>
+        
+        <Link to="/cart" className="cart-link">
+          <BsCart3 className="nav-icon cart-icon" />
+          <span>Cart</span>
+          <span className="cart-badge">0</span>
         </Link>
+        
+        <Link to="/contact">
+          <FaPhone className="nav-icon" />
+          <span>Contact Us</span>
+        </Link>
+        
         <Link to="/login">
           <FaUser className="nav-icon" />
           <span>Login</span>
