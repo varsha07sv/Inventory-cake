@@ -27,7 +27,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  background: white;
+  background: var(--lavender-bg-light);
 }
 
 .container {
@@ -62,7 +62,7 @@ body {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(243, 229, 245, 0.3);
   border-radius: 50%;
   animation: float 5s infinite;
 }
@@ -83,7 +83,7 @@ body {
   z-index: 2;
   max-width: 900px;
   padding: 0 20px;
-  margin-top: -50px;
+  margin-top: -50px; /* Adjusted to move content up */
 }
 
 .hero-subtitle {
@@ -230,14 +230,10 @@ body {
   display: block;
 }
 
-.hero-wave svg path {
-  fill: #f8f0fc;
-}
-
 /* Stats Section - Lavender Theme */
 .stats-section {
   padding: 80px 0;
-  background: white;
+  background: var(--lavender-bg-light);
   position: relative;
   z-index: 4;
 }
@@ -252,10 +248,11 @@ body {
   text-align: center;
   padding: 30px;
   border-radius: 20px;
-  background: #f8f0fc;
+  background: white;
   transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease both;
   border: 1px solid rgba(155, 107, 157, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .stat-card:hover {
@@ -297,7 +294,7 @@ body {
 /* Features Section - Lavender Theme */
 .features {
   padding: 80px 0;
-  background: var(--gradient-light);
+  background: var(--lavender-extra-light);
 }
 
 .section-header {
@@ -347,6 +344,7 @@ body {
   overflow: hidden;
   z-index: 1;
   border: 1px solid rgba(155, 107, 157, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .card-hover {
@@ -404,7 +402,7 @@ body {
 /* Products Showcase - Lavender Theme */
 .products-showcase {
   padding: 80px 0;
-  background: white;
+  background: var(--lavender-bg-light);
 }
 
 .products-grid {
@@ -567,7 +565,7 @@ body {
 /* Testimonials Section - Lavender Theme */
 .testimonials {
   padding: 80px 0;
-  background: #f8f0fc;
+  background: var(--lavender-extra-light);
 }
 
 .testimonials-slider {
@@ -675,7 +673,7 @@ body {
 /* Contact Section - Lavender Theme */
 .contact {
   padding: 80px 0;
-  background: linear-gradient(135deg, #9b6b9d 0%, #b185b3 100%);
+  background: var(--gradient-lavender);
   color: white;
   position: relative;
   overflow: hidden;
@@ -1141,13 +1139,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8f0fc;
+  background: var(--lavender-bg-light);
 }
 
 ::-webkit-scrollbar-thumb {
   background: #9b6b9d;
   border-radius: 6px;
-  border: 3px solid #f8f0fc;
+  border: 3px solid var(--lavender-bg-light);
 }
 
 ::-webkit-scrollbar-thumb:hover {
