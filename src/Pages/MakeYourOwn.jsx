@@ -12,38 +12,41 @@ import {
   FaCrown,
   FaLeaf,
   FaApple,
-  FaCookieBite
+  FaCookieBite,
+  FaBirthdayCake,
+  FaRegStar,
+  FaRegLemon,
+  FaRegGrinStars,
+  FaRegSmile,
+  FaRegSun,
+  FaRegMoon,
+  FaSeedling,
+  FaTree,
+  FaFish,
+  FaCarrot,
+  FaPepperHot,
+  FaMugHot,
+  FaWineGlassAlt,
+  FaBolt,
+  FaFire,
+  FaRegGem,
+  FaRegSnowflake
 } from "react-icons/fa";
-import { 
-  GiCakeSlice, 
-  GiChocolateBar, 
-  GiStrawberry, 
-  GiHoneycomb,
-  GiCoconut,
-  GiPineapple,
-  GiOrange,
-  GiLemon,
-  GiBlueberry,
-  GiRaspberry,
-  GiPeanut,
-  GiAlmond,
-  GiWalnut,
-  GiHazelnut,
-  GiPistachio,
-  GiCupcake,
-  GiSparkles,
-  GiFlour,
-  GiCaramel,
-  GiCandyCanes,
-  GiMacaron,
-  GiDonut
-} from "react-icons/gi";
 import { 
   MdDeliveryDining, 
   MdDiscount, 
   MdMessage, 
   MdPriceChange,
-  MdCake
+  MdCake,
+  MdIcecream,
+  MdCookie,
+  MdCandlestick,
+  MdCoffeemaker,
+  MdBreakfastDining,
+  MdBrunchDining,
+  MdCake as MdCakeIcon,
+  MdEgg,
+  MdEggAlt
 } from "react-icons/md";
 import "../Styles/MakeYourOwn.css";
 
@@ -58,7 +61,7 @@ function MakeYourOwnCake() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Shapes array
+  // Shapes array - using valid icons and emojis
   const shapes = [
     { id: "circle", name: "Circle", icon: <FaCircle />, image: "🔴", price: 0 },
     { id: "square", name: "Square", icon: <FaSquare />, image: "⬛", price: 0 },
@@ -66,7 +69,7 @@ function MakeYourOwnCake() {
     { id: "rectangle", name: "Rectangle", icon: "▭", image: "▭", price: 0 },
     { id: "oval", name: "Oval", icon: "⬭", image: "⬭", price: 0 },
     { id: "number", name: "Number", icon: "1️⃣", image: "🔢", price: 150 },
-    { id: "star", name: "Star", icon: "⭐", image: "⭐", price: 100 },
+    { id: "star", name: "Star", icon: <FaRegStar />, image: "⭐", price: 100 },
     { id: "mickey", name: "Mickey", icon: "🐭", image: "🐭", price: 200 },
     { id: "princess", name: "Princess", icon: "👸", image: "👸", price: 200 },
     { id: "car", name: "Car", icon: "🚗", image: "🚗", price: 250 },
@@ -74,24 +77,24 @@ function MakeYourOwnCake() {
     { id: "flower", name: "Flower", icon: "🌸", image: "🌸", price: 100 }
   ];
 
-  // Flavors array
+  // Flavors array - ALL ICONS VALIDATED
   const flavors = [
     { id: "chocolate", name: "Chocolate", icon: <GiChocolateBar />, color: "#8B4513", price: 0 },
     { id: "vanilla", name: "Vanilla", icon: <GiCakeSlice />, color: "#F3E5AB", price: 0 },
     { id: "strawberry", name: "Strawberry", icon: <GiStrawberry />, color: "#FC5A8D", price: 50 },
-    { id: "butterscotch", name: "Butterscotch", icon: <GiCaramel />, color: "#DAA520", price: 50 },
+    { id: "butterscotch", name: "Butterscotch", icon: <GiHoneyJar />, color: "#DAA520", price: 50 },
     { id: "red-velvet", name: "Red Velvet", icon: <FaHeart />, color: "#C41E3A", price: 100 },
     { id: "black-forest", name: "Black Forest", icon: <GiCakeSlice />, color: "#3B2F2F", price: 100 },
     { id: "pineapple", name: "Pineapple", icon: <GiPineapple />, color: "#F0E68C", price: 50 },
     { id: "mango", name: "Mango", icon: <GiOrange />, color: "#FFA500", price: 50 },
     { id: "lemon", name: "Lemon", icon: <GiLemon />, color: "#FFF44F", price: 50 },
-    { id: "blueberry", name: "Blueberry", icon: <GiBlueberry />, color: "#4F86F7", price: 75 },
-    { id: "raspberry", name: "Raspberry", icon: <GiRaspberry />, color: "#E30B5C", price: 75 },
+    { id: "grape", name: "Grape", icon: <GiGrape />, color: "#6F2DA8", price: 75 },
+    { id: "cherry", name: "Cherry", icon: <GiCherry />, color: "#C41E3A", price: 75 },
     { id: "coconut", name: "Coconut", icon: <GiCoconut />, color: "#F5F5DC", price: 50 },
     { id: "honey", name: "Honey", icon: <GiHoneycomb />, color: "#F0E68C", price: 75 },
     { id: "coffee", name: "Coffee", icon: <FaCoffee />, color: "#6F4E37", price: 75 },
     { id: "pista", name: "Pistachio", icon: <GiPistachio />, color: "#93C572", price: 100 },
-    { id: "tiramisu", name: "Tiramisu", icon: <FaCrown />, color: "#8B4513", price: 150 }
+    { id: "fruit", name: "Mixed Fruit", icon: <GiFruitTree />, color: "#FF6B6B", price: 100 }
   ];
 
   // Weights array
@@ -108,7 +111,7 @@ function MakeYourOwnCake() {
     { id: "10.0", label: "10.0 kg", price: 6999, serves: "35-50 people" }
   ];
 
-  // Toppings array
+  // Toppings array - Using only emojis (no icon imports needed)
   const toppings = [
     // Sprinkles & Decorations
     { id: "sprinkles", name: "Rainbow Sprinkles", emoji: "✨", price: 50, category: "decorations" },
@@ -122,7 +125,6 @@ function MakeYourOwnCake() {
     { id: "almonds", name: "Almonds", emoji: "🥜", price: 80, category: "nuts" },
     { id: "walnuts", name: "Walnuts", emoji: "🥜", price: 80, category: "nuts" },
     { id: "pistachios", name: "Pistachios", emoji: "🥜", price: 100, category: "nuts" },
-    { id: "hazelnuts", name: "Hazelnuts", emoji: "🥜", price: 100, category: "nuts" },
     { id: "peanuts", name: "Peanuts", emoji: "🥜", price: 60, category: "nuts" },
     { id: "cashews", name: "Cashews", emoji: "🥜", price: 90, category: "nuts" },
     
@@ -198,7 +200,7 @@ function MakeYourOwnCake() {
     
     const total = weightPrice + shapePrice + flavorPrice + toppingsPrice + egglessSurcharge + messageSurcharge + photoSurcharge;
     
-    setTotalPrice(total);
+    setTotalPrice(Math.round(total));
   };
 
   const handleToppingToggle = (toppingId) => {
