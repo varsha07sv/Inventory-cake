@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <h2 className="logo">
-        ICB Delight <span className="logo-icon"></span>
+        ICB Delights <span className="logo-icon"></span>
       </h2>
 
       <div className="nav-links">
