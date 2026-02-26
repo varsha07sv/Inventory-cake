@@ -30,24 +30,21 @@ import {
   FaBolt,
   FaFire,
   FaRegGem,
-  FaRegSnowflake
+  FaRegSnowflake,
+  FaRegClock,
+  FaRegCalendarAlt,
+  FaRegMoneyBillAlt,
+  FaRegCreditCard,
+  FaTruck,
+  FaBox,
+  FaGift,
+  FaRibbon,
+  FaCandyCane,
+  FaCookie,
+  FaIceCream,
+  FaPizzaSlice,
+  FaBreadSlice
 } from "react-icons/fa";
-import { 
-  MdDeliveryDining, 
-  MdDiscount, 
-  MdMessage, 
-  MdPriceChange,
-  MdCake,
-  MdIcecream,
-  MdCookie,
-  MdCandlestick,
-  MdCoffeemaker,
-  MdBreakfastDining,
-  MdBrunchDining,
-  MdCake as MdCakeIcon,
-  MdEgg,
-  MdEggAlt
-} from "react-icons/md";
 import "../Styles/MakeYourOwn.css";
 
 function MakeYourOwnCake() {
@@ -77,24 +74,24 @@ function MakeYourOwnCake() {
     { id: "flower", name: "Flower", icon: "🌸", image: "🌸", price: 100 }
   ];
 
-  // Flavors array - ALL ICONS VALIDATED
+  // Flavors array - Using only Font Awesome icons
   const flavors = [
-    { id: "chocolate", name: "Chocolate", icon: <GiChocolateBar />, color: "#8B4513", price: 0 },
-    { id: "vanilla", name: "Vanilla", icon: <GiCakeSlice />, color: "#F3E5AB", price: 0 },
-    { id: "strawberry", name: "Strawberry", icon: <GiStrawberry />, color: "#FC5A8D", price: 50 },
-    { id: "butterscotch", name: "Butterscotch", icon: <GiHoneyJar />, color: "#DAA520", price: 50 },
+    { id: "chocolate", name: "Chocolate", icon: <FaCookieBite />, color: "#8B4513", price: 0 },
+    { id: "vanilla", name: "Vanilla", icon: <FaIceCream />, color: "#F3E5AB", price: 0 },
+    { id: "strawberry", name: "Strawberry", icon: <FaHeart />, color: "#FC5A8D", price: 50 },
+    { id: "butterscotch", name: "Butterscotch", icon: <FaCrown />, color: "#DAA520", price: 50 },
     { id: "red-velvet", name: "Red Velvet", icon: <FaHeart />, color: "#C41E3A", price: 100 },
-    { id: "black-forest", name: "Black Forest", icon: <GiCakeSlice />, color: "#3B2F2F", price: 100 },
-    { id: "pineapple", name: "Pineapple", icon: <GiPineapple />, color: "#F0E68C", price: 50 },
-    { id: "mango", name: "Mango", icon: <GiOrange />, color: "#FFA500", price: 50 },
-    { id: "lemon", name: "Lemon", icon: <GiLemon />, color: "#FFF44F", price: 50 },
-    { id: "grape", name: "Grape", icon: <GiGrape />, color: "#6F2DA8", price: 75 },
-    { id: "cherry", name: "Cherry", icon: <GiCherry />, color: "#C41E3A", price: 75 },
-    { id: "coconut", name: "Coconut", icon: <GiCoconut />, color: "#F5F5DC", price: 50 },
-    { id: "honey", name: "Honey", icon: <GiHoneycomb />, color: "#F0E68C", price: 75 },
+    { id: "black-forest", name: "Black Forest", icon: <FaTree />, color: "#3B2F2F", price: 100 },
+    { id: "pineapple", name: "Pineapple", icon: <FaTree />, color: "#F0E68C", price: 50 },
+    { id: "mango", name: "Mango", icon: <FaRegSun />, color: "#FFA500", price: 50 },
+    { id: "lemon", name: "Lemon", icon: <FaRegLemon />, color: "#FFF44F", price: 50 },
+    { id: "grape", name: "Grape", icon: <FaWineGlassAlt />, color: "#6F2DA8", price: 75 },
+    { id: "cherry", name: "Cherry", icon: <FaHeart />, color: "#C41E3A", price: 75 },
+    { id: "coconut", name: "Coconut", icon: <FaSeedling />, color: "#F5F5DC", price: 50 },
+    { id: "honey", name: "Honey", icon: <FaBolt />, color: "#F0E68C", price: 75 },
     { id: "coffee", name: "Coffee", icon: <FaCoffee />, color: "#6F4E37", price: 75 },
-    { id: "pista", name: "Pistachio", icon: <GiPistachio />, color: "#93C572", price: 100 },
-    { id: "fruit", name: "Mixed Fruit", icon: <GiFruitTree />, color: "#FF6B6B", price: 100 }
+    { id: "pista", name: "Pistachio", icon: <FaSeedling />, color: "#93C572", price: 100 },
+    { id: "fruit", name: "Mixed Fruit", icon: <FaApple />, color: "#FF6B6B", price: 100 }
   ];
 
   // Weights array
@@ -280,7 +277,7 @@ function MakeYourOwnCake() {
             </h2>
             <div className="header-actions">
               <div className="live-price">
-                <MdPriceChange className="price-icon" />
+                <FaRegMoneyBillAlt className="price-icon" />
                 <span className="price-amount">₹{totalPrice}</span>
               </div>
               <button className="save-review-btn">
@@ -452,7 +449,7 @@ function MakeYourOwnCake() {
                 rows="3"
               />
               <p className="message-note">
-                <MdMessage /> Note: Special Characters Other Than '-@' Not Allowed. Only 70 characters Allowed.
+                <FaRegComment /> Note: Special Characters Other Than '-@' Not Allowed. Only 70 characters Allowed.
                 {cakeMessage.length > 0 && <span className="message-charge"> (+₹50)</span>}
               </p>
               <div className="character-count">
