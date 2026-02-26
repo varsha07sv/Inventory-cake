@@ -6,9 +6,8 @@ import {
 } from "lucide-react";
 import "../Styles/Product.css";
 
-// Sample cake data with images (30+ cakes)
 const initialCakes = [
-  // Chocolate Cakes (8)
+  
   {
     id: 1,
     name: "Classic Chocolate Cake",
