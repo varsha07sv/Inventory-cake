@@ -16,7 +16,11 @@ function Contact() {
     city: "",
     zipCode: "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     requirement: ""
+=======
+    requirement: "" 
+>>>>>>> Stashed changes
 =======
     requirement: "" 
 >>>>>>> Stashed changes
@@ -33,10 +37,13 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Validate form before submission
     if (!formData.firstName || !formData.mobile || 
         !formData.email || !formData.cakeName || !formData.date || !formData.city || !formData.zipCode) {
 =======
+=======
+>>>>>>> Stashed changes
     if (!formData.firstName || !formData.lastName || !formData.mobile || 
         !formData.email || !formData.date || !formData.city || !formData.zipCode) {
 >>>>>>> Stashed changes
@@ -165,6 +172,9 @@ function Contact() {
             </div>
           </div>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>

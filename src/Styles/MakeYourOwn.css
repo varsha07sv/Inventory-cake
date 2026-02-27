@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* MakeYourOwn.css - Complete Version */
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -14,8 +18,11 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .page-title {
 =======
+=======
+>>>>>>> Stashed changes
 
 .cake-hero {
   background: linear-gradient(135deg, #9b6b9d 0%, #b185b3 50%, #d9b0d9 100%);
@@ -98,9 +105,12 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* Customization Panel */
 .customization-panel {
 =======
+=======
+>>>>>>> Stashed changes
 
 .cake-customization {
 >>>>>>> Stashed changes
@@ -406,6 +416,7 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .price {
   position: absolute;
   top: 5px;
@@ -420,6 +431,8 @@
 /* Flavor Options */
 .flavor-options {
 =======
+=======
+>>>>>>> Stashed changes
 
 .toppings-grid {
 >>>>>>> Stashed changes
@@ -680,6 +693,7 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* Price Section */
 .price-section {
   margin-top: 20px;
@@ -688,6 +702,8 @@
   background: white;
   padding: 15px 0;
 =======
+=======
+>>>>>>> Stashed changes
 
 .buy-now-section {
   margin-top: 30px;
@@ -817,8 +833,11 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .cake {
 =======
+=======
+>>>>>>> Stashed changes
 
 .cake-preview-shape {
 >>>>>>> Stashed changes
@@ -1025,10 +1044,13 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* Selected Toppings List */
 .selected-toppings {
   margin-top: 15px;
 =======
+=======
+>>>>>>> Stashed changes
 
 .instructions-card {
   background: linear-gradient(135deg, #f8f0fc 0%, #f3e5f5 100%);
@@ -1079,8 +1101,11 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .selected-toppings h4 {
 =======
+=======
+>>>>>>> Stashed changes
 
 .cake-footer-note {
   background: white;
@@ -1099,6 +1124,7 @@
   font-size: 0.9rem;
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .selected-toppings-list {
   display: flex;
@@ -1154,6 +1180,8 @@
 }
 
 =======
+=======
+>>>>>>> Stashed changes
 
 @keyframes fadeInUp {
   from {
@@ -1167,6 +1195,9 @@
 }
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 @media (max-width: 1024px) {
   .cake-builder {

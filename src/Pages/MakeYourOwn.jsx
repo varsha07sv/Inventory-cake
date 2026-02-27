@@ -36,6 +36,9 @@ function MakeYourOwnCake() {
   const [draggedTopping, setDraggedTopping] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   const shapes = [
     { id: "square", name: "Square", icon: "⬛", price: 0 },
@@ -46,8 +49,11 @@ function MakeYourOwnCake() {
     { id: "number", name: "Number", icon: "🔢", price: 200 }
   ];
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   // 25+ Flavors with colors and icons
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   const flavors = [
@@ -89,6 +95,7 @@ function MakeYourOwnCake() {
     { id: "chai", name: "Masala Chai", icon: <FaCoffee />, color: "#C19A6B", price: 110, description: "Spiced tea cake" }
   ];
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   // 40+ Toppings with emojis and categories
   const toppings = [
@@ -153,6 +160,8 @@ function MakeYourOwnCake() {
     { id: "badam", name: "Badam Slivers", emoji: "🌰", price: 110, category: "traditional", count: 20 },
     { id: "kaju", name: "Kaju Pieces", emoji: "🥜", price: 120, category: "traditional", count: 18 }
 =======
+=======
+>>>>>>> Stashed changes
   const weights = [
     { id: "0.5", label: "0.5 kg", price: 499, serves: "2-4 people" },
     { id: "1.0", label: "1.0 kg", price: 899, serves: "4-6 people" },
@@ -215,12 +224,15 @@ function MakeYourOwnCake() {
   }, {});
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   // Calculate total price
   useEffect(() => {
     let price = 499; // Base price
     
     // Add shape price
 =======
+=======
+>>>>>>> Stashed changes
   useEffect(() => {
     calculateTotalPrice();
   }, [selectedShape, selectedFlavor, selectedWeight, isEggless, selectedToppings, cakeMessage]);
@@ -228,17 +240,24 @@ function MakeYourOwnCake() {
   const calculateTotalPrice = () => {
     const weightPrice = weights.find(w => w.id === selectedWeight)?.price || 0;
     
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     const shapePrice = shapes.find(s => s.id === selectedShape)?.price || 0;
     price += shapePrice;
     
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Add flavor price
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     const flavorPrice = flavors.find(f => f.id === selectedFlavor)?.price || 0;
     price += flavorPrice;
     
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // Add cream price
     if (hasCream) price += 80;
@@ -252,6 +271,8 @@ function MakeYourOwnCake() {
     // Add message price
     if (cakeMessage.trim()) price += 60;
 =======
+=======
+>>>>>>> Stashed changes
     const toppingsPrice = selectedToppings.reduce((total, toppingId) => {
       const topping = toppings.find(t => t.id === toppingId);
       return total + (topping?.price || 0);
@@ -268,6 +289,7 @@ function MakeYourOwnCake() {
   // Handle topping toggle
   const handleToppingToggle = (toppingId) => {
     if (selectedToppings.includes(toppingId)) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       setSelectedToppings(selectedToppings.filter(id => id !== toppingId));
     } else {
@@ -293,6 +315,8 @@ function MakeYourOwnCake() {
             <h3>Choose Shape <span className="section-count">{shapes.length} options</span></h3>
             <div className="shape-options">
 =======
+=======
+>>>>>>> Stashed changes
      
       setSelectedToppings(prev => prev.filter(id => id !== toppingId));
  
@@ -453,11 +477,14 @@ function MakeYourOwnCake() {
           </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Flavor Selection */}
           <div className="section">
             <h3>Choose Flavor <span className="section-count">{flavors.length} options</span></h3>
             <div className="flavor-options">
 =======
+=======
+>>>>>>> Stashed changes
           <div className="customization-section">
             <h3 className="section-subtitle">Choose Flavor</h3>
             <div className="flavor-grid">
@@ -481,6 +508,7 @@ function MakeYourOwnCake() {
           </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Cream Option */}
           <div className="section">
             <h3>Add Cream Layer</h3>
@@ -499,6 +527,8 @@ function MakeYourOwnCake() {
             <h3>Add Toppings <span className="section-count">{toppings.length} options</span></h3>
             {Object.entries(toppingsByCategory).map(([category, items]) => (
 =======
+=======
+>>>>>>> Stashed changes
           <div className="customization-section">
             <div className="weight-header">
               <h3 className="section-subtitle">Choose Weight</h3>
@@ -557,6 +587,7 @@ function MakeYourOwnCake() {
           </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Message on Cake */}
           <div className="section">
             <h3>Message on Cake</h3>
@@ -577,6 +608,8 @@ function MakeYourOwnCake() {
           <div className="price-section">
             <div className="total-price">
 =======
+=======
+>>>>>>> Stashed changes
           <div className="customization-section">
             <h3 className="section-subtitle">Message On Cake</h3>
             <div className="message-section">
@@ -608,6 +641,7 @@ function MakeYourOwnCake() {
             </button>
           </div>
         </div>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
         {/* Right Side - Cake Preview */}
@@ -646,6 +680,8 @@ function MakeYourOwnCake() {
 
                 {/* Toppings - Multiple pieces scattered */}
 =======
+=======
+>>>>>>> Stashed changes
         <div className="cake-preview">
           <div className="preview-card">
             <h3 className="preview-title">Your Cake Preview</h3>
@@ -661,6 +697,9 @@ function MakeYourOwnCake() {
                   <div className="cake-layer layer-3" style={{ background: cakeColor }}></div>
                 </div>
                 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 {selectedToppings.map(toppingId => {
                   const topping = toppings.find(t => t.id === toppingId);
@@ -771,6 +810,7 @@ function MakeYourOwnCake() {
           </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Selected Toppings List */}
           {selectedToppings.length > 0 && (
             <div className="selected-toppings">
@@ -788,6 +828,8 @@ function MakeYourOwnCake() {
             </div>
           )}
 =======
+=======
+>>>>>>> Stashed changes
           <div className="instructions-card">
             <h3 className="instructions-title">
               Craving a custom cake? <span className="highlight">It's super easy!</span>
