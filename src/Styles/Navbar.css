@@ -73,7 +73,7 @@
   transform: translateY(0);
 }
 
-/* Active Link Style */
+
 .nav-links a.active {
   background: #f3e5f5;
   color: #6b4e71;
@@ -84,7 +84,7 @@
   color: #6b4e71;
 }
 
-/* Cart Badge (if needed) */
+
 .cart-badge {
   position: absolute;
   top: -5px;
@@ -99,7 +99,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile Menu Button (if needed) */
+
 .menu-toggle {
   display: none;
   background: rgba(243, 229, 245, 0.2);
@@ -123,7 +123,7 @@
   font-size: 1.5rem;
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 1024px) {
   .navbar {
     padding: 1rem 1.5rem;
@@ -211,7 +211,7 @@
   }
 }
 
-/* Small Mobile Devices */
+
 @media screen and (max-width: 360px) {
   .navbar {
     padding: 0.6rem;
@@ -234,7 +234,7 @@
   }
 }
 
-/* Landscape Mode */
+
 @media screen and (max-height: 480px) and (orientation: landscape) {
   .navbar {
     padding: 0.5rem 1rem;
@@ -249,7 +249,7 @@
   }
 }
 
-/* Dropdown Menu (if needed) */
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -293,7 +293,7 @@
   color: #f3e5f5;
 }
 
-/* Animation for navbar on scroll */
+
 .navbar.scrolled {
   padding: 0.8rem 2rem;
   background: linear-gradient(135deg, #8b5b8d 0%, #a175a3 100%);
@@ -306,7 +306,7 @@
   }
 }
 
-/* Hover effect for logo */
+
 .logo:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
@@ -325,13 +325,13 @@
   }
 }
 
-/* Focus states for accessibility */
+
 .nav-links a:focus-visible {
   outline: 3px solid #f3e5f5;
   outline-offset: 2px;
 }
 
-/* Loading state for nav items */
+
 .nav-links a.loading {
   opacity: 0.7;
   pointer-events: none;

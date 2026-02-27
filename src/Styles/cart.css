@@ -1,6 +1,4 @@
-/* ============================================
-   cart.css — Cart page styles
-   ============================================ */
+
 
 .cart-page {
   min-height: 100vh;
@@ -8,7 +6,6 @@
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ── Header ── */
 .cart-header {
   background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%);
   padding: 24px 48px;
@@ -70,14 +67,12 @@
   border-radius: 20px;
 }
 
-/* ── Body ── */
 .cart-body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 36px 48px 60px;
 }
 
-/* ── Empty state ── */
 .cart-empty {
   text-align: center;
   padding: 80px 0;
@@ -120,7 +115,6 @@
   box-shadow: 0 8px 20px rgba(128,90,213,0.3);
 }
 
-/* ── Layout ── */
 .cart-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -128,7 +122,6 @@
   align-items: start;
 }
 
-/* ── Items panel ── */
 .cart-items {
   background: #fff;
   border-radius: 20px;
@@ -171,7 +164,6 @@
   background: #fee2e2;
 }
 
-/* ── Single cart item ── */
 .cart-item {
   display: flex;
   align-items: center;
@@ -235,7 +227,6 @@
   flex-shrink: 0;
 }
 
-/* Qty stepper */
 .qty-control {
   display: flex;
   align-items: center;
@@ -299,7 +290,6 @@
   background: #fee2e2;
 }
 
-/* ── Summary panel ── */
 .cart-summary {
   background: #fff;
   border-radius: 20px;
@@ -375,7 +365,6 @@
   line-height: 1.5;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .cart-header { padding: 20px 32px; }
   .cart-body   { padding: 28px 32px 48px; }

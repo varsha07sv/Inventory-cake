@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const login = (username, password) => {
-    // Demo authentication logic
+ 
     if (username === 'admin' && password === 'admin123') {
       const userData = { username: 'admin', role: 'admin' };
       setUser(userData);
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
-  // Check for stored user on mount
+
   React.useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook for using auth context
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

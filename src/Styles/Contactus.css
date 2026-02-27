@@ -1,4 +1,4 @@
-/* Contact.css - Lavender Theme Enquiry Form */
+
 
 .contact-page {
   min-height: 100vh;
@@ -60,7 +60,7 @@
   box-shadow: 0 20px 40px rgba(155, 107, 157, 0.2);
 }
 
-/* Left Side - Contact Info */
+
 .contact-info {
   background: linear-gradient(135deg, #9b6b9d 0%, #b185b3 100%);
   padding: 50px 30px;
@@ -142,7 +142,7 @@
   margin: 0;
 }
 
-/* Right Side - Form */
+
 .contact-form-container {
   padding: 50px;
   background: white;
@@ -223,7 +223,7 @@
   opacity: 0.7;
 }
 
-/* DateTime Group */
+
 .datetime-group {
   display: flex;
   align-items: center;
@@ -291,7 +291,7 @@
   margin-top: 5px;
 }
 
-/* Form Buttons */
+
 .form-buttons {
   display: flex;
   gap: 20px;
@@ -344,7 +344,7 @@
   transform: translateY(-1px);
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
   .contact-wrapper {
     grid-template-columns: 1fr;
@@ -468,7 +468,7 @@
   }
 }
 
-/* Animation for form inputs */
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -492,7 +492,7 @@
 .form-group:nth-child(6) { animation-delay: 0.6s; }
 .form-group:nth-child(7) { animation-delay: 0.7s; }
 
-/* Focus states for accessibility */
+
 .form-input:focus-visible,
 .date-field:focus-visible,
 .datetime-select:focus-visible,
@@ -502,7 +502,7 @@
   outline-offset: 2px;
 }
 
-/* Loading state for submit button */
+
 .btn-submit.loading {
   position: relative;
   color: transparent;

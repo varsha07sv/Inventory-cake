@@ -25,7 +25,7 @@ function Cupcakes() {
   return (
     <div className="cp-page">
 
-      {/*── Top bar: back + cart only── */}
+ 
       <div className="cp-topbar">
         <button className="cp-back-btn" onClick={() => navigate(-1)}>
           <FaArrowLeft /> Back

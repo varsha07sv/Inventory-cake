@@ -7,33 +7,21 @@ import "../Styles/Login.css";
 function Login() {
   const { login, sendOTP, verifyOTP, register } = useAuth();
   const navigate = useNavigate();
-
-  // Step management
   const [step, setStep] = useState('email'); // 'email', 'otp', 'register'
-  
-  // Form states
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
-  // UI states
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  
-  // Validation errors
   const [emailError, setEmailError] = useState("");
   const [otpError, setOtpError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  
-  // Timer for OTP resend
   const [resendTimer, setResendTimer] = useState(0);
-
-  // Clear errors when fields change
   useEffect(() => {
     if (email) setEmailError("");
     if (otp) setOtpError("");
@@ -41,8 +29,6 @@ function Login() {
     if (password) setPasswordError("");
     if (error) setError("");
   }, [email, otp, name, password, error]);
-
-  // Timer effect for OTP resend
   useEffect(() => {
     let interval;
     if (resendTimer > 0) {
@@ -110,17 +96,13 @@ function Login() {
     setSuccess("");
 
     try {
-      // Check if user exists
       const userExists = await sendOTP(email);
       
       if (userExists) {
         setSuccess("OTP sent to your email. Please check your inbox.");
         setStep('otp');
-        
-        // Start resend timer (60 seconds)
         setResendTimer(60);
       } else {
-        // New user - go to registration
         setStep('register');
       }
     } catch (err) {
@@ -165,11 +147,10 @@ function Login() {
           localStorage.removeItem("rememberedEmail");
         }
         
-        // Redirect based on user role (admin or customer)
         if (user.role === 'admin') {
           navigate("/admin/dashboard");
         } else {
-          navigate("/products"); // Customer goes to products page
+          navigate("/products"); 
         }
       } else {
         setError("Invalid OTP. Please try again.");
@@ -190,7 +171,6 @@ function Login() {
     setError("");
 
     try {
-      // Create new user account (default role: customer)
       await register({ email, name, password, role: 'customer' });
       setSuccess("Account created! OTP sent to your email for verification.");
       setStep('otp');
@@ -209,7 +189,6 @@ function Login() {
     setSuccess("");
   };
 
-  // Load remembered email on mount
   useEffect(() => {
     const remembered = localStorage.getItem("rememberedEmail");
     if (remembered) {
@@ -269,7 +248,6 @@ function Login() {
             </div>
           )}
 
-          {/* EMAIL STEP */}
           {step === 'email' && (
             <form onSubmit={handleSendOTP} className="login-form">
               <div className="input-group">
@@ -329,7 +307,6 @@ function Login() {
             </form>
           )}
 
-          {/* OTP STEP */}
           {step === 'otp' && (
             <form onSubmit={handleVerifyOTP} className="login-form">
               <div className="input-group">
@@ -397,7 +374,6 @@ function Login() {
             </form>
           )}
 
-          {/* REGISTRATION STEP */}
           {step === 'register' && (
             <form onSubmit={handleRegister} className="login-form">
               <div className="input-group">

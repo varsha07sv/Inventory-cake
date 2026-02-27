@@ -23,11 +23,20 @@ function MakeYourOwnCake() {
   const [selectedFlavor, setSelectedFlavor] = useState("chocolate");
   const [hasCream, setHasCream] = useState(false);
   const [selectedToppings, setSelectedToppings] = useState([]);
+<<<<<<< Updated upstream
   const [cakeMessage, setCakeMessage] = useState("");
   const [totalPrice, setTotalPrice] = useState(499);
   const [showSlice, setShowSlice] = useState(false);
 
   // Shapes with more options
+=======
+  const [toppingPositions, setToppingPositions] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [cakeColor, setCakeColor] = useState("#8B4513"); 
+  const [draggedTopping, setDraggedTopping] = useState(null);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+
+>>>>>>> Stashed changes
   const shapes = [
     { id: "square", name: "Square", icon: "⬛", price: 0 },
     { id: "circle", name: "Round", icon: "⚪", price: 0 },
@@ -36,8 +45,11 @@ function MakeYourOwnCake() {
     { id: "star", name: "Star", icon: "⭐", price: 150 },
     { id: "number", name: "Number", icon: "🔢", price: 200 }
   ];
+<<<<<<< Updated upstream
 
   // 25+ Flavors with colors and icons
+=======
+>>>>>>> Stashed changes
   const flavors = [
     // Chocolate Based (5)
     { id: "chocolate", name: "Rich Chocolate", icon: <FaCookieBite />, color: "#3B2F2F", price: 0, description: "Dark chocolate cake" },
@@ -77,6 +89,7 @@ function MakeYourOwnCake() {
     { id: "chai", name: "Masala Chai", icon: <FaCoffee />, color: "#C19A6B", price: 110, description: "Spiced tea cake" }
   ];
 
+<<<<<<< Updated upstream
   // 40+ Toppings with emojis and categories
   const toppings = [
     // Nuts (8)
@@ -139,27 +152,94 @@ function MakeYourOwnCake() {
     { id: "pista-crushed", name: "Crushed Pista", emoji: "🟢", price: 100, category: "traditional", count: 25 },
     { id: "badam", name: "Badam Slivers", emoji: "🌰", price: 110, category: "traditional", count: 20 },
     { id: "kaju", name: "Kaju Pieces", emoji: "🥜", price: 120, category: "traditional", count: 18 }
+=======
+  const weights = [
+    { id: "0.5", label: "0.5 kg", price: 499, serves: "2-4 people" },
+    { id: "1.0", label: "1.0 kg", price: 899, serves: "4-6 people" },
+    { id: "1.5", label: "1.5 kg", price: 1299, serves: "6-8 people" },
+    { id: "2.0", label: "2.0 kg", price: 1699, serves: "8-10 people" },
+    { id: "2.5", label: "2.5 kg", price: 1999, serves: "10-12 people" },
+    { id: "3.0", label: "3.0 kg", price: 2499, serves: "12-15 people" },
+    { id: "4.0", label: "4.0 kg", price: 3199, serves: "15-20 people" },
+    { id: "5.0", label: "5.0 kg", price: 3999, serves: "20-25 people" },
+    { id: "7.5", label: "7.5 kg", price: 5499, serves: "25-35 people" },
+    { id: "10.0", label: "10.0 kg", price: 6999, serves: "35-50 people" }
   ];
 
-  // Group toppings by category
+  const toppings = [
+    { id: "sprinkles", name: "Rainbow Sprinkles", emoji: "✨", price: 50, category: "decorations" },
+    { id: "chocolate-sprinkles", name: "Chocolate Sprinkles", emoji: "🍫", price: 60, category: "decorations" },
+    { id: "gold-leaf", name: "Gold Leaf", emoji: "✨", price: 200, category: "decorations" },
+    { id: "silver-leaf", name: "Silver Leaf", emoji: "✨", price: 200, category: "decorations" },
+    { id: "edible-glitter", name: "Edible Glitter", emoji: "✨", price: 80, category: "decorations" },
+    { id: "macarons", name: "Macarons", emoji: "🍪", price: 150, category: "decorations" },
+    
+    { id: "almonds", name: "Almonds", emoji: "🥜", price: 80, category: "nuts" },
+    { id: "walnuts", name: "Walnuts", emoji: "🥜", price: 80, category: "nuts" },
+    { id: "pistachios", name: "Pistachios", emoji: "🥜", price: 100, category: "nuts" },
+    { id: "peanuts", name: "Peanuts", emoji: "🥜", price: 60, category: "nuts" },
+    { id: "cashews", name: "Cashews", emoji: "🥜", price: 90, category: "nuts" },
+    
+    { id: "chocolate-chips", name: "Chocolate Chips", emoji: "🍫", price: 70, category: "chocolate" },
+    { id: "white-chips", name: "White Chips", emoji: "🍫", price: 70, category: "chocolate" },
+    { id: "dark-chips", name: "Dark Chips", emoji: "🍫", price: 80, category: "chocolate" },
+    { id: "chocolate-shavings", name: "Chocolate Shavings", emoji: "🍫", price: 80, category: "chocolate" },
+    { id: "chocolate-drizzle", name: "Chocolate Drizzle", emoji: "🍫", price: 60, category: "chocolate" },
+    { id: "caramel-drizzle", name: "Caramel Drizzle", emoji: "🍯", price: 60, category: "chocolate" },
+    
+    { id: "fresh-strawberries", name: "Fresh Strawberries", emoji: "🍓", price: 120, category: "fruits" },
+    { id: "fresh-blueberries", name: "Fresh Blueberries", emoji: "🫐", price: 120, category: "fruits" },
+    { id: "fresh-raspberries", name: "Fresh Raspberries", emoji: "🍓", price: 130, category: "fruits" },
+    { id: "mango-cubes", name: "Mango Cubes", emoji: "🥭", price: 100, category: "fruits" },
+    { id: "kiwi-slices", name: "Kiwi Slices", emoji: "🥝", price: 100, category: "fruits" },
+    { id: "orange-zest", name: "Orange Zest", emoji: "🍊", price: 60, category: "fruits" },
+    
+    { id: "candles", name: "Birthday Candles", emoji: "🕯️", price: 40, category: "candies" },
+    { id: "numbered-candles", name: "Number Candles", emoji: "🕯️", price: 60, category: "candies" },
+    { id: "sparklers", name: "Sparklers", emoji: "✨", price: 100, category: "candies" },
+    { id: "mms", name: "M&Ms", emoji: "🍬", price: 80, category: "candies" },
+    { id: "gummy-bears", name: "Gummy Bears", emoji: "🧸", price: 70, category: "candies" },
+    { id: "candy-canes", name: "Candy Canes", emoji: "🍭", price: 60, category: "candies" },
+    
+    { id: "edible-roses", name: "Edible Roses", emoji: "🌹", price: 150, category: "flowers" },
+    { id: "edible-lavender", name: "Edible Lavender", emoji: "🌸", price: 120, category: "flowers" },
+    { id: "sugar-flowers", name: "Sugar Flowers", emoji: "🌸", price: 100, category: "flowers" },
+    { id: "fresh-flowers", name: "Fresh Flowers", emoji: "🌺", price: 200, category: "flowers" }
+>>>>>>> Stashed changes
+  ];
+
   const toppingsByCategory = toppings.reduce((acc, topping) => {
     if (!acc[topping.category]) acc[topping.category] = [];
     acc[topping.category].push(topping);
     return acc;
   }, {});
 
+<<<<<<< Updated upstream
   // Calculate total price
   useEffect(() => {
     let price = 499; // Base price
     
     // Add shape price
+=======
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [selectedShape, selectedFlavor, selectedWeight, isEggless, selectedToppings, cakeMessage]);
+
+  const calculateTotalPrice = () => {
+    const weightPrice = weights.find(w => w.id === selectedWeight)?.price || 0;
+    
+>>>>>>> Stashed changes
     const shapePrice = shapes.find(s => s.id === selectedShape)?.price || 0;
     price += shapePrice;
     
+<<<<<<< Updated upstream
     // Add flavor price
+=======
+>>>>>>> Stashed changes
     const flavorPrice = flavors.find(f => f.id === selectedFlavor)?.price || 0;
     price += flavorPrice;
     
+<<<<<<< Updated upstream
     // Add cream price
     if (hasCream) price += 80;
     
@@ -171,6 +251,16 @@ function MakeYourOwnCake() {
     
     // Add message price
     if (cakeMessage.trim()) price += 60;
+=======
+    const toppingsPrice = selectedToppings.reduce((total, toppingId) => {
+      const topping = toppings.find(t => t.id === toppingId);
+      return total + (topping?.price || 0);
+    }, 0);
+    
+    const egglessSurcharge = isEggless ? weightPrice * 0.1 : 0;
+    
+    const messageSurcharge = cakeMessage.length > 0 ? 50 : 0;
+>>>>>>> Stashed changes
     
     setTotalPrice(price);
   }, [selectedShape, selectedFlavor, hasCream, selectedToppings, cakeMessage]);
@@ -178,6 +268,7 @@ function MakeYourOwnCake() {
   // Handle topping toggle
   const handleToppingToggle = (toppingId) => {
     if (selectedToppings.includes(toppingId)) {
+<<<<<<< Updated upstream
       setSelectedToppings(selectedToppings.filter(id => id !== toppingId));
     } else {
       setSelectedToppings([...selectedToppings, toppingId]);
@@ -201,6 +292,152 @@ function MakeYourOwnCake() {
           <div className="section">
             <h3>Choose Shape <span className="section-count">{shapes.length} options</span></h3>
             <div className="shape-options">
+=======
+     
+      setSelectedToppings(prev => prev.filter(id => id !== toppingId));
+ 
+      const newPositions = { ...toppingPositions };
+      delete newPositions[toppingId];
+      setToppingPositions(newPositions);
+    } else {
+      
+      setSelectedToppings(prev => [...prev, toppingId]);
+      setToppingPositions(prev => ({
+        ...prev,
+        [toppingId]: { x: 50, y: 50 } 
+      }));
+    }
+  };
+
+  const handleDragStart = (e, toppingId) => {
+    const toppingElement = e.target;
+    const rect = toppingElement.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    
+    setDraggedTopping(toppingId);
+    setDragOffset({ x: offsetX, y: offsetY });
+    
+    e.dataTransfer.setData("text/plain", toppingId);
+    e.dataTransfer.effectAllowed = "move";
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    
+    if (!draggedTopping) return;
+    
+    const cakeContainer = e.currentTarget;
+    const rect = cakeContainer.getBoundingClientRect();
+    
+    const x = ((e.clientX - rect.left - dragOffset.x) / rect.width) * 100;
+    const y = ((e.clientY - rect.top - dragOffset.y) / rect.height) * 100;
+    
+    const constrainedX = Math.max(0, Math.min(100, x));
+    const constrainedY = Math.max(0, Math.min(100, y));
+    
+    setToppingPositions(prev => ({
+      ...prev,
+      [draggedTopping]: { x: constrainedX, y: constrainedY }
+    }));
+    
+    setDraggedTopping(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTopping(null);
+  };
+
+  const handleMessageChange = (e) => {
+    const value = e.target.value;
+    const regex = /^[a-zA-Z0-9\s\-@]*$/;
+    if (value.length <= 70 && (regex.test(value) || value === "")) {
+      setCakeMessage(value);
+    }
+  };
+
+  const handlePincodeApply = () => {
+    if (pincode.length === 6 && /^\d+$/.test(pincode)) {
+      alert(`Delivery available at ${pincode}! Delivery charge: ₹50`);
+    } else {
+      alert("Please enter a valid 6-digit pincode");
+    }
+  };
+
+  const handleBuyNow = () => {
+    const orderDetails = {
+      shape: shapes.find(s => s.id === selectedShape)?.name,
+      flavor: flavors.find(f => f.id === selectedFlavor)?.name,
+      weight: weights.find(w => w.id === selectedWeight)?.label,
+      eggless: isEggless,
+      message: cakeMessage,
+      toppings: selectedToppings.map(id => ({
+        name: toppings.find(t => t.id === id)?.name,
+        position: toppingPositions[id] || { x: 50, y: 50 }
+      })),
+      pincode: pincode,
+      totalPrice: `₹${totalPrice}`
+    };
+    console.log("Order placed:", orderDetails);
+    alert(`Your custom cake has been added to cart! Total: ₹${totalPrice}`);
+  };
+
+  return (
+    <div className="make-cake-container">
+      <section className="cake-hero">
+        <div className="cake-hero-content">
+          <h1 className="cake-hero-title">
+            Make your own <span className="highlight">custom cake</span>
+          </h1>
+          <p className="cake-hero-description">
+            Drag, choose & customise every detail – watch your dream cake come alive in real time.
+          </p>
+        </div>
+      </section>
+
+      <div className="cake-main-content">
+        <div className="cake-customization">
+          <div className="customization-header">
+            <h2 className="customization-title">
+              Your Own Cake <span className="reviews-badge">⭐ 1011 Reviews</span>
+            </h2>
+            <div className="header-actions">
+              <div className="live-price">
+                <FaRegMoneyBillAlt className="price-icon" />
+                <span className="price-amount">₹{totalPrice}</span>
+              </div>
+              <button className="save-review-btn">
+                <FaHeart /> SAVE & REVIEW
+              </button>
+              <span className="tax-info">Inclusive of all taxes</span>
+            </div>
+          </div>
+
+          <div className="pincode-section">
+            <div className="pincode-input-group">
+              <input
+                type="text"
+                placeholder="Enter Your Pincode"
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
+                maxLength="6"
+                className="pincode-input"
+              />
+              <button onClick={handlePincodeApply} className="apply-btn">
+                Apply
+              </button>
+            </div>
+          </div>
+
+          <div className="customization-section">
+            <h3 className="section-subtitle">Choose Shape</h3>
+            <div className="shape-grid">
+>>>>>>> Stashed changes
               {shapes.map(shape => (
                 <button
                   key={shape.id}
@@ -215,10 +452,16 @@ function MakeYourOwnCake() {
             </div>
           </div>
 
+<<<<<<< Updated upstream
           {/* Flavor Selection */}
           <div className="section">
             <h3>Choose Flavor <span className="section-count">{flavors.length} options</span></h3>
             <div className="flavor-options">
+=======
+          <div className="customization-section">
+            <h3 className="section-subtitle">Choose Flavor</h3>
+            <div className="flavor-grid">
+>>>>>>> Stashed changes
               {flavors.map(flavor => (
                 <button
                   key={flavor.id}
@@ -237,6 +480,7 @@ function MakeYourOwnCake() {
             </div>
           </div>
 
+<<<<<<< Updated upstream
           {/* Cream Option */}
           <div className="section">
             <h3>Add Cream Layer</h3>
@@ -254,6 +498,38 @@ function MakeYourOwnCake() {
           <div className="section">
             <h3>Add Toppings <span className="section-count">{toppings.length} options</span></h3>
             {Object.entries(toppingsByCategory).map(([category, items]) => (
+=======
+          <div className="customization-section">
+            <div className="weight-header">
+              <h3 className="section-subtitle">Choose Weight</h3>
+              <label className="eggless-toggle">
+                <input
+                  type="checkbox"
+                  checked={isEggless}
+                  onChange={() => setIsEggless(!isEggless)}
+                />
+                <span className="toggle-label">Eggless (+10%)</span>
+              </label>
+            </div>
+            <div className="weight-grid">
+              {weights.map(weight => (
+                <div
+                  key={weight.id}
+                  className={`weight-option ${selectedWeight === weight.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedWeight(weight.id)}
+                >
+                  <span className="weight-label">{weight.label}</span>
+                  <span className="weight-serves">{weight.serves}</span>
+                  <span className="weight-price">₹{weight.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="customization-section">
+            <h3 className="section-subtitle">Add Toppings (Optional)</h3>
+            {Object.entries(toppingsByCategory).map(([category, categoryToppings]) => (
+>>>>>>> Stashed changes
               <div key={category} className="topping-category">
                 <h4 className="category-title">
                   {category.charAt(0).toUpperCase() + category.slice(1)} 
@@ -280,6 +556,7 @@ function MakeYourOwnCake() {
             ))}
           </div>
 
+<<<<<<< Updated upstream
           {/* Message on Cake */}
           <div className="section">
             <h3>Message on Cake</h3>
@@ -299,6 +576,30 @@ function MakeYourOwnCake() {
           {/* Price and Add to Cart */}
           <div className="price-section">
             <div className="total-price">
+=======
+          <div className="customization-section">
+            <h3 className="section-subtitle">Message On Cake</h3>
+            <div className="message-section">
+              <textarea
+                value={cakeMessage}
+                onChange={handleMessageChange}
+                placeholder="Type your message here..."
+                className="message-input"
+                rows="3"
+              />
+              <p className="message-note">
+                <FaRegComment /> Note: Special Characters Other Than '-@' Not Allowed. Only 70 characters Allowed.
+                {cakeMessage.length > 0 && <span className="message-charge"> (+₹50)</span>}
+              </p>
+              <div className="character-count">
+                {cakeMessage.length}/70 characters
+              </div>
+            </div>
+          </div>
+
+          <div className="buy-now-section">
+            <div className="total-price-display">
+>>>>>>> Stashed changes
               <span>Total Amount:</span>
               <span className="price-amount">₹{totalPrice}</span>
             </div>
@@ -307,6 +608,7 @@ function MakeYourOwnCake() {
             </button>
           </div>
         </div>
+<<<<<<< Updated upstream
 
         {/* Right Side - Cake Preview */}
         <div className="preview-panel">
@@ -343,6 +645,23 @@ function MakeYourOwnCake() {
                 )}
 
                 {/* Toppings - Multiple pieces scattered */}
+=======
+        <div className="cake-preview">
+          <div className="preview-card">
+            <h3 className="preview-title">Your Cake Preview</h3>
+            <div 
+              className="cake-preview-container"
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
+              <div className={`cake-preview-shape ${selectedShape}`}>
+                <div className="cake-base" style={{ background: cakeColor }}>
+                  <div className="cake-layer layer-1" style={{ background: cakeColor }}></div>
+                  <div className="cake-layer layer-2" style={{ background: cakeColor }}></div>
+                  <div className="cake-layer layer-3" style={{ background: cakeColor }}></div>
+                </div>
+                
+>>>>>>> Stashed changes
                 {selectedToppings.map(toppingId => {
                   const topping = toppings.find(t => t.id === toppingId);
                   if (!topping) return null;
@@ -451,6 +770,7 @@ function MakeYourOwnCake() {
             </div>
           </div>
 
+<<<<<<< Updated upstream
           {/* Selected Toppings List */}
           {selectedToppings.length > 0 && (
             <div className="selected-toppings">
@@ -467,6 +787,44 @@ function MakeYourOwnCake() {
               </div>
             </div>
           )}
+=======
+          <div className="instructions-card">
+            <h3 className="instructions-title">
+              Craving a custom cake? <span className="highlight">It's super easy!</span>
+            </h3>
+            <ul className="instructions-list">
+              <li>
+                <span className="instruction-bullet">🎯</span>
+                Pick your shape (circle, square, heart, star, number... you name it)
+              </li>
+              <li>
+                <span className="instruction-bullet">🍰</span>
+                Choose from 16+ delicious flavors
+              </li>
+              <li>
+                <span className="instruction-bullet">✨</span>
+                Add your favorite toppings and drag them anywhere on the cake
+              </li>
+              <li>
+                <span className="instruction-bullet">✏️</span>
+                Add a personal message
+              </li>
+              <li>
+                <span className="instruction-bullet">✅</span>
+                Hit submit & complete your order!
+              </li>
+            </ul>
+            <p className="instructions-footer">
+              Make every celebration sweeter—start creating your dream cake now!
+            </p>
+          </div>
+
+          <div className="cake-footer-note">
+            <h4 className="footer-note-title">
+              Make Your Own Cake at ICB Delights: Custom Cakes Made Easy!
+            </h4>
+          </div>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

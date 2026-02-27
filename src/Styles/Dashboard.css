@@ -1,4 +1,4 @@
-/* Dashboard.css */
+
 
 .dashboard {
   max-width: 1440px;
@@ -63,7 +63,7 @@
   animation: spin 1s linear infinite;
 }
 
-/* Stats Grid */
+
 .stats-grid-dashboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -141,7 +141,7 @@
   margin-left: 4px;
 }
 
-/* Charts Grid */
+
 .charts-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -219,7 +219,7 @@
   color: var(--primary);
 }
 
-/* Bar Chart */
+
 .chart-container {
   height: 300px;
   display: flex;
@@ -272,7 +272,7 @@
   color: var(--gray-700);
 }
 
-/* Pie Chart */
+
 .pie-chart-container {
   display: flex;
   flex-direction: column;
@@ -356,7 +356,7 @@
   color: var(--gray-800);
 }
 
-/* Activity Grid */
+
 .activity-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -468,7 +468,7 @@
   color: var(--gray-300);
 }
 
-/* Alerts List */
+
 .alerts-list {
   display: flex;
   flex-direction: column;
@@ -543,7 +543,7 @@
   opacity: 0.6;
 }
 
-/* Recent Scans */
+
 .scans-card {
   background: white;
   border-radius: 20px;
@@ -686,7 +686,7 @@
   font-size: 13px;
 }
 
-/* Quick Actions */
+
 .quick-actions {
   display: flex;
   gap: 16px;
@@ -729,7 +729,7 @@
   color: white;
 }
 
-/* Animations */
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -739,7 +739,7 @@
   }
 }
 
-/* Media Queries */
+
 @media (max-width: 1200px) {
   .charts-grid {
     grid-template-columns: 1fr;

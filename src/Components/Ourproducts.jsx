@@ -82,7 +82,7 @@ const CATEGORIES = [
   },
 ];
 
-/* ── Single category row with left/right scroll ── */
+
 function CategoryRow({ category, navigate }) {
   const trackRef = useRef(null);
 
@@ -92,7 +92,7 @@ function CategoryRow({ category, navigate }) {
 
   return (
     <div className="op-row">
-      {/* Header: name left | arrows + view-all right */}
+
       <div className="op-row-header">
         <h3 className="op-row-title">
           <span className="op-row-accent" />
@@ -111,7 +111,7 @@ function CategoryRow({ category, navigate }) {
         </div>
       </div>
 
-      {/* Scrollable card track */}
+
       <div className="op-track" ref={trackRef}>
         {category.items.map((item) => (
           <div
@@ -122,7 +122,7 @@ function CategoryRow({ category, navigate }) {
             tabIndex={0}
             onKeyDown={(e) => e.key === "Enter" && navigate(category.route)}
           >
-            {/* 1:1 image using padding-top trick */}
+
             <div className="op-card-img">
               <img src={item.image} alt={item.name} loading="lazy" />
               <div className="op-card-overlay">
@@ -137,7 +137,7 @@ function CategoryRow({ category, navigate }) {
   );
 }
 
-/* ── Main exported component ── */
+
 function OurProducts() {
   const navigate = useNavigate();
 

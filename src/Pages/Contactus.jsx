@@ -15,7 +15,11 @@ function Contact() {
     ampm: "AM",
     city: "",
     zipCode: "",
+<<<<<<< Updated upstream
     requirement: ""
+=======
+    requirement: "" 
+>>>>>>> Stashed changes
   });
 
   const handleChange = (e) => {
@@ -28,17 +32,20 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< Updated upstream
     // Validate form before submission
     if (!formData.firstName || !formData.mobile || 
         !formData.email || !formData.cakeName || !formData.date || !formData.city || !formData.zipCode) {
+=======
+    if (!formData.firstName || !formData.lastName || !formData.mobile || 
+        !formData.email || !formData.date || !formData.city || !formData.zipCode) {
+>>>>>>> Stashed changes
       alert("Please fill in all required fields!");
       return;
     }
     
-    // Construct full date time string
     const dateTimeString = `${formData.date} | Day: ${formData.day} | Month: ${formData.month} | ${formData.ampm}`;
     
-    // Handle form submission here
     console.log("Form submitted:", {
       ...formData,
       fullDateTime: dateTimeString
@@ -46,7 +53,6 @@ function Contact() {
     
     alert("Enquiry submitted successfully! We'll get back to you within 24 hours.");
     
-    // Optional: Reset form after successful submission
     handleReset();
   };
 
@@ -66,7 +72,6 @@ function Contact() {
     });
   };
 
-  // Generate options for days (1-31)
   const dayOptions = [];
   for (let i = 1; i <= 31; i++) {
     dayOptions.push(
@@ -76,7 +81,6 @@ function Contact() {
     );
   }
 
-  // Generate options for months (1-12)
   const monthOptions = [];
   for (let i = 1; i <= 12; i++) {
     monthOptions.push(
@@ -97,7 +101,6 @@ function Contact() {
         </div>
 
         <div className="contact-wrapper">
-          {/* Left side - Contact Info */}
           <div className="contact-info">
             <div className="info-card">
               <h3 className="info-title">Enquiry</h3>
@@ -133,10 +136,36 @@ function Contact() {
                     <p>Anna Nagar, Chennai - 600040</p>
                   </div>
                 </div>
+<<<<<<< Updated upstream
               </div>
             </div>
           </div>
           
+=======
+                
+                <div className="info-item">
+                  <MdAccessTime className="info-icon" />
+                  <div>
+                    <h4>Working Hours</h4>
+                    <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+                    <p>Sunday: 10:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="info-social">
+                <h4>Follow Us</h4>
+                <div className="social-icons">
+                  <a href="#" className="social-icon">📘</a>
+                  <a href="#" className="social-icon">📷</a>
+                  <a href="#" className="social-icon">🐦</a>
+                  <a href="#" className="social-icon">📌</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+>>>>>>> Stashed changes
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
               <h3 className="form-title">Send us a Message</h3>

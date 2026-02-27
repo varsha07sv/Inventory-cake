@@ -1,6 +1,6 @@
-/* Home.css - Lavender Theme Complete Stylesheet */
 
-/* Reset and Base Styles */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +36,7 @@ body {
   padding: 0 20px;
 }
 
-/* Hero Section - Lavender Theme */
+
 .hero {
   min-height: 100vh;
   background: var(--gradient-lavender);
@@ -83,7 +83,7 @@ body {
   z-index: 2;
   max-width: 900px;
   padding: 0 20px;
-  margin-top: -50px; /* Adjusted to move content up */
+  margin-top: -50px; 
 }
 
 .hero-subtitle {
@@ -230,7 +230,7 @@ body {
   display: block;
 }
 
-/* Stats Section - Lavender Theme */
+
 .stats-section {
   padding: 80px 0;
   background: var(--lavender-bg-light);
@@ -291,7 +291,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* Features Section - Lavender Theme */
+
 .features {
   padding: 80px 0;
   background: var(--lavender-extra-light);
@@ -399,22 +399,7 @@ body {
   line-height: 1.6;
 }
 
-  /* 50% {
-    transform: translateY(-10px);
-  }
-}
 
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-  50% {
-    transform: scale(1.05);
-  }
-} */
-
-/* Testimonials Section - Lavender Theme */
 .testimonials {
   padding: 80px 0;
   background: var(--lavender-extra-light);
@@ -522,7 +507,7 @@ body {
   transform: scale(1.2);
 }
 
-/* Contact Section - Lavender Theme */
+
 .contact {
   padding: 80px 0;
   background: var(--gradient-lavender);
@@ -644,7 +629,7 @@ body {
   color: #e8d3ea;
 }
 
-/* Social Links - Lavender Theme */
+
 .social-links {
   display: flex;
   gap: 20px;
@@ -679,7 +664,7 @@ body {
   font-size: 1.2rem;
 }
 
-/* Animations */
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -721,7 +706,7 @@ body {
   animation: fadeInUp 0.8s ease both;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 4rem;
@@ -906,7 +891,7 @@ body {
   }
 }
 
-/* Small Mobile Devices */
+
 @media (max-width: 360px) {
   .hero-title {
     font-size: 2rem;
@@ -926,7 +911,7 @@ body {
   
 }
 
-/* Landscape Mode */
+
 @media (max-height: 600px) and (orientation: landscape) {
   .hero {
     min-height: 120vh;
@@ -947,7 +932,7 @@ body {
   }
 }
 
-/* Scrollbar Styling - Lavender Theme */
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -966,7 +951,7 @@ body {
   background: #b185b3;
 }
 
-/* Selection Styling */
+
 ::selection {
   background: #9b6b9d;
   color: white;
@@ -977,7 +962,7 @@ body {
   color: white;
 }
 
-/* Loading Animation for Images */
+
 
 @keyframes shimmer {
   0% {
@@ -988,7 +973,7 @@ body {
   }
 }
 
-/* Focus States for Accessibility */
+
 *:focus {
   outline: 2px solid #9b6b9d;
   outline-offset: 2px;
@@ -999,7 +984,7 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Print Styles */
+
 @media print {
   .hero,
   .features,

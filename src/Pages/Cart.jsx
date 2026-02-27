@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaTrash, FaWhatsapp, FaShoppingCart } from "react-icons/fa";
 import "../styles/cart.css";
 
-// ❌ REMOVE ALL THIS - DELETE THESE LINES:
-// import { createContext, useContext, useState } from "react";
-// const CartContext = createContext();
-// export const CartProvider = ({ children }) => { ... }
-// export const useCart = () => useContext(CartContext);
+
 
 function Cart() {
   const { 
@@ -20,7 +16,7 @@ function Cart() {
   
   const navigate = useNavigate();
 
-  // If cart is empty
+
   if (cart.length === 0) {
     return (
       <div className="cart-empty">
@@ -47,7 +43,7 @@ function Cart() {
       </div>
 
       <div className="cart-content">
-        {/* Cart Items */}
+        
         <div className="cart-items">
           {cart.map((item) => (
             <div key={item.id} className="cart-item">
@@ -61,7 +57,7 @@ function Cart() {
                 <h3>{item.name}</h3>
                 <p className="cart-item-price">₹{item.price}</p>
                 
-                {/* Custom cake details if present */}
+               
                 {item.flavor && <p className="item-detail">Flavor: {item.flavor}</p>}
                 {item.shape && <p className="item-detail">Shape: {item.shape}</p>}
                 {item.weight && <p className="item-detail">Weight: {item.weight}</p>}
@@ -101,7 +97,7 @@ function Cart() {
           ))}
         </div>
 
-        {/* Order Summary */}
+     
         <div className="cart-summary">
           <h2>Order Summary</h2>
           

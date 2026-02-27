@@ -3,14 +3,14 @@ import { AuthProvider } from "./Context/AuthContext";
 import { CartProvider } from "./Context/CartContext";
 import Navbar    from "./Components/Navbar";
 
-/* Main pages */
+
 import Home      from "./Pages/Home";
 import Login     from "./Pages/Login";
 import Inventory from "./Pages/Inventory";
 import Cart      from "./Pages/Cart";
 import Contact   from "./Pages/Contactus";
 import MakeYourOwnCake from "./Pages/MakeYourOwn";  
-/* Category pages */
+
 import Cakes       from "./Pages/Product/Cakes";
 import Bentocakes  from "./Pages/Product/Bentocakes";
 import Brownie     from "./Pages/Product/Brownie";

@@ -30,7 +30,6 @@ function Home() {
   return (
     <div className="home">
 
-      {/* ── Hero ── */}
       <section
         className="hero"
         style={{
@@ -57,10 +56,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Our Products (separate component) ── */}
       <OurProducts />
 
-      {/* ── Features ── */}
       <section className="features">
         <div className="container">
           <h2 className="section-title">Why Choose ICB Delights?</h2>
@@ -89,7 +86,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Contact ── */}
       <section id="contact-section" className="contact">
         <div className="container">
           <div className="contact-content">

@@ -1,6 +1,3 @@
-/* ============================================
-   categoryproduct.css — shared for all category pages
-   ============================================ */
 
 :root {
   --cp-primary:    #805ad5;
@@ -19,14 +16,12 @@
   --cp-transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ── Page ── */
 .cp-page {
   min-height: 100vh;
   background: #f5f3ff;
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ── Top bar (replaces hero) ── */
 .cp-topbar {
   background: #ffffff;
   padding: 16px 24px;
@@ -34,7 +29,7 @@
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid var(--cp-border);
-  position: relative;   /* remove sticky for now */
+  position: relative;  
 }
 
 .cp-back-btn {
@@ -61,7 +56,7 @@
   color: #f3f4f6 !important;
   transform: translateY(-1px);
 }
-/* Center title */
+
 .cp-topbar-center {
   display: flex;
   align-items: center;
@@ -82,7 +77,7 @@
   margin: 0;
 }
 
-/* Cart button */
+
 .cp-cart-nav-btn {
   display: inline-flex;
   align-items: center;
@@ -123,7 +118,7 @@
   border: 1.5px solid var(--cp-primary);
 }
 
-/* ── Content ── */
+
 .cp-content {
   max-width: 1280px;
   margin: 0 auto;
@@ -146,14 +141,14 @@
   margin: 0 0 28px;
 }
 
-/* ── Grid ── */
+
 .cp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* ── Card ── */
+
 .cp-card {
   background: var(--cp-white);
   border-radius: 18px;
@@ -260,7 +255,7 @@
   white-space: nowrap;
 }
 
-/* ── Add to Cart button ── */
+
 .cp-cart-btn {
   display: inline-flex;
   align-items: center;
@@ -289,7 +284,7 @@
   transform: scale(1.04);
 }
 
-/* ── Responsive ── */
+
 @media (max-width: 1024px) {
   .cp-topbar  { padding: 12px 32px; }
   .cp-content { padding: 28px 32px 48px; }
