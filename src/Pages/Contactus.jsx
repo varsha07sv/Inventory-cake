@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { FaUser, FaMobile, FaEnvelope, FaCalendar, FaCity, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaUser, FaMobile, FaEnvelope, FaCalendar, FaCity, FaMapMarkerAlt, FaPhone, FaBirthdayCake } from "react-icons/fa";
 import { MdLocationOn, MdAccessTime } from "react-icons/md";
 import "../Styles/Contactus.css";
 
 function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
     mobile: "",
     email: "",
+    cakeName: "", // Added cake name field
     date: "",
     month: "01",
     day: "00",
     ampm: "AM",
     city: "",
     zipCode: "",
-    requirement: "" // Added for specific requirement details
+    requirement: ""
   });
 
   const handleChange = (e) => {
@@ -29,8 +29,8 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Validate form before submission
-    if (!formData.firstName || !formData.lastName || !formData.mobile || 
-        !formData.email || !formData.date || !formData.city || !formData.zipCode) {
+    if (!formData.firstName || !formData.mobile || 
+        !formData.email || !formData.cakeName || !formData.date || !formData.city || !formData.zipCode) {
       alert("Please fill in all required fields!");
       return;
     }
@@ -53,9 +53,9 @@ function Contact() {
   const handleReset = () => {
     setFormData({
       firstName: "",
-      lastName: "",
       mobile: "",
       email: "",
+      cakeName: "",
       date: "",
       month: "01",
       day: "00",
@@ -90,7 +90,7 @@ function Contact() {
     <div className="contact-page">
       <div className="contact-container">
         <div className="contact-header">
-          <h1 className="contact-title">Enquiry <span className="highlight">Form</span></h1>
+          <h1 className="contact-title">Enquiry Form</h1>
           <p className="contact-subtitle">
             We'd love to hear from you! Please fill out the form below and we'll get back to you shortly.
           </p>
@@ -100,7 +100,7 @@ function Contact() {
           {/* Left side - Contact Info */}
           <div className="contact-info">
             <div className="info-card">
-              <h3 className="info-title">Get in Touch</h3>
+              <h3 className="info-title">Enquiry</h3>
               <p className="info-description">
                 Have questions about our cakes? Want to place a custom order? 
                 Fill out the form and we'll get back to you within 24 hours.
@@ -133,31 +133,10 @@ function Contact() {
                     <p>Anna Nagar, Chennai - 600040</p>
                   </div>
                 </div>
-                
-                <div className="info-item">
-                  <MdAccessTime className="info-icon" />
-                  <div>
-                    <h4>Working Hours</h4>
-                    <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
-                    <p>Sunday: 10:00 AM - 6:00 PM</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media Links */}
-              <div className="info-social">
-                <h4>Follow Us</h4>
-                <div className="social-icons">
-                  <a href="#" className="social-icon">📘</a>
-                  <a href="#" className="social-icon">📷</a>
-                  <a href="#" className="social-icon">🐦</a>
-                  <a href="#" className="social-icon">📌</a>
-                </div>
               </div>
             </div>
           </div>
-
-          {/* Right side - Enquiry Form */}
+          
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
               <h3 className="form-title">Send us a Message</h3>
@@ -180,19 +159,21 @@ function Contact() {
                     />
                   </div>
                 </div>
+              </div>
 
+              <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Last Name: <span className="required">*</span>
+                    Cake Name: <span className="required">*</span>
                   </label>
                   <div className="input-group">
-                    <FaUser className="input-icon" />
+                    <FaBirthdayCake className="input-icon" />
                     <input
                       type="text"
-                      name="lastName"
-                      value={formData.lastName}
+                      name="cakeName"
+                      value={formData.cakeName}
                       onChange={handleChange}
-                      placeholder="Enter your last name"
+                      placeholder="Enter cake name (e.g., Chocolate Truffle)"
                       required
                       className="form-input"
                     />
@@ -248,18 +229,15 @@ function Contact() {
                   <div className="date-input">
                     <FaCalendar className="datetime-icon" />
                     <input
-                      type="text"
+                      type="date"
                       name="date"
                       value={formData.date}
                       onChange={handleChange}
-                      placeholder="DD/MM/YYYY"
-                      pattern="\d{2}/\d{2}/\d{4}"
-                      title="Please enter date in DD/MM/YYYY format"
                       required
                       className="date-field"
                     />
                   </div>
-                  <span className="datetime-separator">▼</span>
+                  <span className="datetime-separator">|</span>
                   <select 
                     name="day" 
                     value={formData.day} 
@@ -270,7 +248,7 @@ function Contact() {
                     <option value="00">Day</option>
                     {dayOptions}
                   </select>
-                  <span className="datetime-separator">▼</span>
+                  <span className="datetime-separator">|</span>
                   <select 
                     name="month" 
                     value={formData.month} 
@@ -281,7 +259,7 @@ function Contact() {
                     <option value="00">Month</option>
                     {monthOptions}
                   </select>
-                  <span className="datetime-separator">▼</span>
+                  <span className="datetime-separator">|</span>
                   <select 
                     name="ampm" 
                     value={formData.ampm} 
@@ -293,7 +271,7 @@ function Contact() {
                     <option value="PM">PM</option>
                   </select>
                 </div>
-                <small className="datetime-hint">Format: DD/MM/YYYY | Day | Month | AM/PM</small>
+                <small className="datetime-hint">Select date and preferred time</small>
               </div>
 
               <div className="form-group">
