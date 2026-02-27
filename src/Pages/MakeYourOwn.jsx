@@ -56,8 +56,11 @@ function MakeYourOwnCake() {
   const [pincode, setPincode] = useState("");
   const [isEggless, setIsEggless] = useState(false);
   const [selectedToppings, setSelectedToppings] = useState([]);
+  const [toppingPositions, setToppingPositions] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
   const [cakeColor, setCakeColor] = useState("#8B4513"); // Default chocolate color
+  const [draggedTopping, setDraggedTopping] = useState(null);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
   // Shapes array - using valid icons and emojis
   const shapes = [
@@ -196,11 +199,70 @@ function MakeYourOwnCake() {
   };
 
   const handleToppingToggle = (toppingId) => {
-    setSelectedToppings(prev => 
-      prev.includes(toppingId) 
-        ? prev.filter(id => id !== toppingId)
-        : [...prev, toppingId]
-    );
+    if (selectedToppings.includes(toppingId)) {
+      // Remove topping
+      setSelectedToppings(prev => prev.filter(id => id !== toppingId));
+      // Remove its position
+      const newPositions = { ...toppingPositions };
+      delete newPositions[toppingId];
+      setToppingPositions(newPositions);
+    } else {
+      // Add topping with default position (center of cake)
+      setSelectedToppings(prev => [...prev, toppingId]);
+      setToppingPositions(prev => ({
+        ...prev,
+        [toppingId]: { x: 50, y: 50 } // Default center position (percentage)
+      }));
+    }
+  };
+
+  // Drag and drop handlers
+  const handleDragStart = (e, toppingId) => {
+    const toppingElement = e.target;
+    const rect = toppingElement.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    
+    setDraggedTopping(toppingId);
+    setDragOffset({ x: offsetX, y: offsetY });
+    
+    e.dataTransfer.setData("text/plain", toppingId);
+    e.dataTransfer.effectAllowed = "move";
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    
+    if (!draggedTopping) return;
+    
+    // Get drop position relative to cake container
+    const cakeContainer = e.currentTarget;
+    const rect = cakeContainer.getBoundingClientRect();
+    
+    // Calculate position as percentage
+    const x = ((e.clientX - rect.left - dragOffset.x) / rect.width) * 100;
+    const y = ((e.clientY - rect.top - dragOffset.y) / rect.height) * 100;
+    
+    // Constrain to cake boundaries (0-100%)
+    const constrainedX = Math.max(0, Math.min(100, x));
+    const constrainedY = Math.max(0, Math.min(100, y));
+    
+    // Update topping position
+    setToppingPositions(prev => ({
+      ...prev,
+      [draggedTopping]: { x: constrainedX, y: constrainedY }
+    }));
+    
+    setDraggedTopping(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTopping(null);
   };
 
   const handleMessageChange = (e) => {
@@ -228,7 +290,10 @@ function MakeYourOwnCake() {
       weight: weights.find(w => w.id === selectedWeight)?.label,
       eggless: isEggless,
       message: cakeMessage,
-      toppings: selectedToppings.map(id => toppings.find(t => t.id === id)?.name),
+      toppings: selectedToppings.map(id => ({
+        name: toppings.find(t => t.id === id)?.name,
+        position: toppingPositions[id] || { x: 50, y: 50 }
+      })),
       pincode: pincode,
       totalPrice: `₹${totalPrice}`
     };
@@ -432,20 +497,46 @@ function MakeYourOwnCake() {
           {/* 3D Cake Preview */}
           <div className="preview-card">
             <h3 className="preview-title">Your Cake Preview</h3>
-            <div className="cake-preview-container">
+            <div 
+              className="cake-preview-container"
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
               <div className={`cake-preview-shape ${selectedShape}`}>
                 <div className="cake-base" style={{ background: cakeColor }}>
                   <div className="cake-layer layer-1" style={{ background: cakeColor }}></div>
                   <div className="cake-layer layer-2" style={{ background: cakeColor }}></div>
                   <div className="cake-layer layer-3" style={{ background: cakeColor }}></div>
                 </div>
-                <div className="cake-toppings">
-                  {selectedToppings.map(topping => (
-                    <span key={topping} className="topping-indicator">
-                      {toppings.find(t => t.id === topping)?.emoji}
-                    </span>
-                  ))}
-                </div>
+                
+                {/* Draggable Toppings */}
+                {selectedToppings.map(toppingId => {
+                  const topping = toppings.find(t => t.id === toppingId);
+                  const position = toppingPositions[toppingId] || { x: 50, y: 50 };
+                  
+                  return (
+                    <div
+                      key={toppingId}
+                      className="draggable-topping"
+                      style={{
+                        position: 'absolute',
+                        left: `${position.x}%`,
+                        top: `${position.y}%`,
+                        transform: 'translate(-50%, -50%)',
+                        cursor: 'grab',
+                        fontSize: '24px',
+                        zIndex: 10,
+                        userSelect: 'none'
+                      }}
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, toppingId)}
+                      onDragEnd={handleDragEnd}
+                    >
+                      {topping?.emoji}
+                    </div>
+                  );
+                })}
+                
                 {cakeMessage && (
                   <div className="cake-message-preview">
                     {cakeMessage.length > 20 ? cakeMessage.substring(0, 20) + '...' : cakeMessage}
@@ -472,7 +563,7 @@ function MakeYourOwnCake() {
               </div>
               <div className="detail-item">
                 <span className="detail-label">Toppings:</span>
-                <span className="detail-value">{selectedToppings.length} items</span>
+                <span className="detail-value">{selectedToppings.length} items (drag to position)</span>
               </div>
             </div>
           </div>
@@ -493,11 +584,11 @@ function MakeYourOwnCake() {
               </li>
               <li>
                 <span className="instruction-bullet">✨</span>
-                Add your favorite toppings from 30+ options
+                Add your favorite toppings and drag them anywhere on the cake
               </li>
               <li>
-                <span className="instruction-bullet">📸</span>
-                Upload a photo for a personal touch
+                <span className="instruction-bullet">✏️</span>
+                Add a personal message
               </li>
               <li>
                 <span className="instruction-bullet">✅</span>

@@ -43,8 +43,16 @@ function Home() {
   return (
     <div className="home">
 
-      {/* ── Hero ── */}
-      <section className="hero">
+      {/* ── Hero with Cake Background ── */}
+      <section 
+        className="hero" 
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1562777717-dc6984f65a63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="hero-content">
           <span className="hero-subtitle">WELCOME TO</span>
           <h1 className="hero-title">ICB <span className="highlight">Delights</span></h1>
@@ -59,35 +67,6 @@ function Home() {
             <a href="#contact" onClick={handleContactClick} className="btn btn-secondary">
               Contact Us
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Features ── */}
-      <section className="features">
-        <div className="container">
-          <h2 className="section-title">Why Choose ICB Delights ?</h2>
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon"><FaBirthdayCake /></div>
-              <h3>Custom Designs</h3>
-              <p>Personalized cakes tailored to your vision</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><FaLeaf /></div>
-              <h3>Premium Ingredients</h3>
-              <p>Only the finest ingredients in every creation</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><MdDeliveryDining /></div>
-              <h3>Fast Delivery</h3>
-              <p>Free delivery within Chennai city limits</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><FaHeart /></div>
-              <h3>Occasion Specialists</h3>
-              <p>Expert in all celebrations</p>
-            </div>
           </div>
         </div>
       </section>
@@ -120,6 +99,35 @@ function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+       {/* ── Features ── */}
+      <section className="features">
+        <div className="container">
+          <h2 className="section-title">Why Choose ICB Delights ?</h2>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon"><FaBirthdayCake /></div>
+              <h3>Custom Designs</h3>
+              <p>Personalized cakes tailored to your vision</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon"><FaLeaf /></div>
+              <h3>Premium Ingredients</h3>
+              <p>Only the finest ingredients in every creation</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon"><MdDeliveryDining /></div>
+              <h3>Fast Delivery</h3>
+              <p>Free delivery within Chennai city limits</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon"><FaHeart /></div>
+              <h3>Occasion Specialists</h3>
+              <p>Expert in all celebrations</p>
+            </div>
           </div>
         </div>
       </section>
@@ -158,8 +166,6 @@ function Home() {
                   <p style={{ cursor:"pointer", color:"#805ad5" }} onClick={() => window.location.href="mailto:orders@icbdelights.com"}>orders@icbdelights.com</p>
                 </div>
               </div>
-
-
             </div>
 
             <div className="social-links">
