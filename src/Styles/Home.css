@@ -399,168 +399,20 @@ body {
   line-height: 1.6;
 }
 
-/* Products Showcase - Lavender Theme */
-.products-showcase {
-  padding: 80px 0;
-  background: var(--lavender-bg-light);
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.float-animation {
-  animation: floatProduct 3s infinite;
-}
-
-@keyframes floatProduct {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
+  /* 50% {
     transform: translateY(-10px);
   }
 }
 
-.product-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  cursor: pointer;
-  position: relative;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(155, 107, 157, 0.1);
-}
-
-.product-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: var(--shadow-hover);
-  border-color: #9b6b9d;
-}
-
-.product-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-}
-
-.product-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.product-card:hover .product-image {
-  transform: scale(1.1);
-}
-
-.product-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(155, 107, 157, 0.9), rgba(177, 133, 179, 0.9));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.product-card:hover .product-overlay {
-  opacity: 1;
-}
-
-.view-product {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(243, 229, 245, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 12px 25px;
-  border-radius: 50px;
-  border: 2px solid #f3e5f5;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
-
-.product-card:hover .view-product {
-  transform: translateY(0);
-}
-
-.view-product:hover {
-  background: #f3e5f5;
-  color: #6b4e71;
-}
-
-.product-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #9b6b9d;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 25px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 2;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
   50% {
     transform: scale(1.05);
   }
 }
 
-.product-info {
-  padding: 20px;
-  text-align: center;
-}
-
-.product-name {
-  font-size: 1.3rem;
-  color: #4a2c4d;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.product-description {
-  color: #6b4e71;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* View All Button */
-.view-all-container {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.btn-pulse {
-  animation: btnPulse 2s infinite;
-}
-
-@keyframes btnPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
   50% {
     transform: scale(1.05);
   }
-}
+} */
 
 /* Testimonials Section - Lavender Theme */
 .testimonials {
@@ -922,20 +774,7 @@ body {
   .features-grid {
     gap: 20px;
   }
-  
-  .products-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  
-  .product-name {
-    font-size: 1.2rem;
-  }
-  
-  .product-description {
-    font-size: 0.9rem;
-  }
-  
+
   .testimonial-content {
     padding: 30px;
   }
@@ -1023,21 +862,9 @@ body {
     font-size: 1.3rem;
   }
   
-  .products-grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   
-  .product-image-wrapper {
-    max-height: 250px;
-  }
-  
-  .view-product {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
+
   
   .testimonial-content {
     padding: 25px;
@@ -1095,21 +922,8 @@ body {
     font-size: 0.9rem;
   }
   
-  .products-grid {
-    max-width: 280px;
-  }
+
   
-  .product-image-wrapper {
-    max-height: 200px;
-  }
-  
-  .product-name {
-    font-size: 1.1rem;
-  }
-  
-  .product-description {
-    font-size: 0.8rem;
-  }
 }
 
 /* Landscape Mode */
@@ -1164,11 +978,6 @@ body {
 }
 
 /* Loading Animation for Images */
-.product-image.loading {
-  animation: shimmer 1.5s infinite;
-  background: linear-gradient(90deg, #f3e5f5 25%, #e8d3ea 50%, #f3e5f5 75%);
-  background-size: 200% 100%;
-}
 
 @keyframes shimmer {
   0% {
