@@ -37,6 +37,9 @@ function MakeYourOwnCake() {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -50,8 +53,11 @@ function MakeYourOwnCake() {
   ];
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   // 25+ Flavors with colors and icons
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -95,6 +101,7 @@ function MakeYourOwnCake() {
     { id: "chai", name: "Masala Chai", icon: <FaCoffee />, color: "#C19A6B", price: 110, description: "Spiced tea cake" }
   ];
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
   // 40+ Toppings with emojis and categories
@@ -162,6 +169,8 @@ function MakeYourOwnCake() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   const weights = [
     { id: "0.5", label: "0.5 kg", price: 499, serves: "2-4 people" },
     { id: "1.0", label: "1.0 kg", price: 899, serves: "4-6 people" },
@@ -225,12 +234,15 @@ function MakeYourOwnCake() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   // Calculate total price
   useEffect(() => {
     let price = 499; // Base price
     
     // Add shape price
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   useEffect(() => {
@@ -241,6 +253,9 @@ function MakeYourOwnCake() {
     const weightPrice = weights.find(w => w.id === selectedWeight)?.price || 0;
     
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -249,7 +264,10 @@ function MakeYourOwnCake() {
     
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Add flavor price
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -257,6 +275,7 @@ function MakeYourOwnCake() {
     const flavorPrice = flavors.find(f => f.id === selectedFlavor)?.price || 0;
     price += flavorPrice;
     
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // Add cream price
@@ -271,6 +290,8 @@ function MakeYourOwnCake() {
     // Add message price
     if (cakeMessage.trim()) price += 60;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     const toppingsPrice = selectedToppings.reduce((total, toppingId) => {
@@ -289,6 +310,7 @@ function MakeYourOwnCake() {
   // Handle topping toggle
   const handleToppingToggle = (toppingId) => {
     if (selectedToppings.includes(toppingId)) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
       setSelectedToppings(selectedToppings.filter(id => id !== toppingId));
@@ -315,6 +337,8 @@ function MakeYourOwnCake() {
             <h3>Choose Shape <span className="section-count">{shapes.length} options</span></h3>
             <div className="shape-options">
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
      
@@ -478,11 +502,14 @@ function MakeYourOwnCake() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Flavor Selection */}
           <div className="section">
             <h3>Choose Flavor <span className="section-count">{flavors.length} options</span></h3>
             <div className="flavor-options">
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           <div className="customization-section">
@@ -509,6 +536,7 @@ function MakeYourOwnCake() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Cream Option */}
           <div className="section">
             <h3>Add Cream Layer</h3>
@@ -527,6 +555,8 @@ function MakeYourOwnCake() {
             <h3>Add Toppings <span className="section-count">{toppings.length} options</span></h3>
             {Object.entries(toppingsByCategory).map(([category, items]) => (
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           <div className="customization-section">
@@ -588,6 +618,7 @@ function MakeYourOwnCake() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Message on Cake */}
           <div className="section">
             <h3>Message on Cake</h3>
@@ -608,6 +639,8 @@ function MakeYourOwnCake() {
           <div className="price-section">
             <div className="total-price">
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           <div className="customization-section">
@@ -641,6 +674,7 @@ function MakeYourOwnCake() {
             </button>
           </div>
         </div>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -682,6 +716,8 @@ function MakeYourOwnCake() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         <div className="cake-preview">
           <div className="preview-card">
             <h3 className="preview-title">Your Cake Preview</h3>
@@ -698,6 +734,9 @@ function MakeYourOwnCake() {
                 </div>
                 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -811,6 +850,7 @@ function MakeYourOwnCake() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           {/* Selected Toppings List */}
           {selectedToppings.length > 0 && (
             <div className="selected-toppings">
@@ -828,6 +868,8 @@ function MakeYourOwnCake() {
             </div>
           )}
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           <div className="instructions-card">

@@ -17,7 +17,11 @@ function Contact() {
     zipCode: "",
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     requirement: ""
+=======
+    requirement: "" 
+>>>>>>> Stashed changes
 =======
     requirement: "" 
 >>>>>>> Stashed changes
@@ -38,10 +42,13 @@ function Contact() {
     e.preventDefault();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // Validate form before submission
     if (!formData.firstName || !formData.mobile || 
         !formData.email || !formData.cakeName || !formData.date || !formData.city || !formData.zipCode) {
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     if (!formData.firstName || !formData.lastName || !formData.mobile || 
@@ -173,6 +180,9 @@ function Contact() {
           </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
